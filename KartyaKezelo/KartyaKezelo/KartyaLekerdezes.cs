@@ -54,5 +54,10 @@ namespace KartyaKezelo
         {
             this.Close();
         }
+
+        private void tbKartyatipus_TextChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }

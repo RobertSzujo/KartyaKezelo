@@ -85,6 +85,9 @@
     <EmbeddedResource Include="FoAblak.resx">
       <DependentUpon>FoAblak.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="KartyaEsTulajdonosLekerdezes.resx">
+      <DependentUpon>KartyaEsTulajdonosLekerdezes.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="KartyaLekerdezes.resx">
       <DependentUpon>KartyaLekerdezes.cs</DependentUpon>
     </EmbeddedResource>

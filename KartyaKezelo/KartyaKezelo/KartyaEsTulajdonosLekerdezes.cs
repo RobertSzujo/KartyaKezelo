@@ -15,6 +15,15 @@ namespace KartyaKezelo
         public KartyaEsTulajdonosLekerdezes(Kartya kartya) : base(kartya)
         {
             InitializeComponent();
+            KartyaAdatokFeltoltese(kartya);
+            TulajdonosAdatokFeltoltese(kartya.Tulajdonos);
+        }
+
+        private void TulajdonosAdatokFeltoltese(Tulajdonos tulajdonos)
+        {
+            tbTulajdonosNev.Text = tulajdonos.Nev;
+            tbTulajdonosEmail.Text = tulajdonos.Email;
+            tbTulajdonosTel.Text = tulajdonos.Telefonszam;
         }
     }
 }

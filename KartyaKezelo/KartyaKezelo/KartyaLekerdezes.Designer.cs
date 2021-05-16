@@ -30,17 +30,17 @@ namespace KartyaKezelo
         private void InitializeComponent()
         {
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.tbLetiltva = new System.Windows.Forms.TextBox();
+            this.label5 = new System.Windows.Forms.Label();
+            this.tbCvc = new System.Windows.Forms.TextBox();
+            this.label4 = new System.Windows.Forms.Label();
             this.tbKartyatipus = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
             this.tbLejarat = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.tbKartyaszam = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
-            this.button1 = new System.Windows.Forms.Button();
-            this.tbCvc = new System.Windows.Forms.TextBox();
-            this.label4 = new System.Windows.Forms.Label();
-            this.tbLetiltva = new System.Windows.Forms.TextBox();
-            this.label5 = new System.Windows.Forms.Label();
+            this.btnBezaras = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -64,6 +64,42 @@ namespace KartyaKezelo
             this.groupBox1.Text = "Bankkártya adatai";
             this.groupBox1.Enter += new System.EventHandler(this.groupBox1_Enter);
             // 
+            // tbLetiltva
+            // 
+            this.tbLetiltva.Location = new System.Drawing.Point(6, 224);
+            this.tbLetiltva.Name = "tbLetiltva";
+            this.tbLetiltva.ReadOnly = true;
+            this.tbLetiltva.Size = new System.Drawing.Size(297, 22);
+            this.tbLetiltva.TabIndex = 9;
+            this.tbLetiltva.Text = "null";
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(4, 204);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(111, 17);
+            this.label5.TabIndex = 8;
+            this.label5.Text = "Letiltás állapota:";
+            // 
+            // tbCvc
+            // 
+            this.tbCvc.Location = new System.Drawing.Point(6, 179);
+            this.tbCvc.Name = "tbCvc";
+            this.tbCvc.ReadOnly = true;
+            this.tbCvc.Size = new System.Drawing.Size(297, 22);
+            this.tbCvc.TabIndex = 7;
+            this.tbCvc.Text = "null";
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(6, 159);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(66, 17);
+            this.label4.TabIndex = 6;
+            this.label4.Text = "CVC kód:";
+            // 
             // tbKartyatipus
             // 
             this.tbKartyatipus.Location = new System.Drawing.Point(7, 44);
@@ -72,6 +108,7 @@ namespace KartyaKezelo
             this.tbKartyatipus.Size = new System.Drawing.Size(297, 22);
             this.tbKartyatipus.TabIndex = 5;
             this.tbKartyatipus.Text = "null";
+            this.tbKartyatipus.TextChanged += new System.EventHandler(this.tbKartyatipus_TextChanged);
             // 
             // label3
             // 
@@ -119,61 +156,27 @@ namespace KartyaKezelo
             this.label1.Text = "Bankkártya száma:";
             this.label1.Click += new System.EventHandler(this.label1_Click);
             // 
-            // button1
+            // btnBezaras
             // 
-            this.button1.ForeColor = System.Drawing.Color.Red;
-            this.button1.Location = new System.Drawing.Point(13, 275);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(310, 32);
-            this.button1.TabIndex = 1;
-            this.button1.Text = "Ablak bezárása";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
-            // 
-            // tbCvc
-            // 
-            this.tbCvc.Location = new System.Drawing.Point(6, 179);
-            this.tbCvc.Name = "tbCvc";
-            this.tbCvc.ReadOnly = true;
-            this.tbCvc.Size = new System.Drawing.Size(297, 22);
-            this.tbCvc.TabIndex = 7;
-            this.tbCvc.Text = "null";
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(6, 159);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(66, 17);
-            this.label4.TabIndex = 6;
-            this.label4.Text = "CVC kód:";
-            // 
-            // tbLetiltva
-            // 
-            this.tbLetiltva.Location = new System.Drawing.Point(6, 224);
-            this.tbLetiltva.Name = "tbLetiltva";
-            this.tbLetiltva.ReadOnly = true;
-            this.tbLetiltva.Size = new System.Drawing.Size(297, 22);
-            this.tbLetiltva.TabIndex = 9;
-            this.tbLetiltva.Text = "null";
-            // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(4, 204);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(111, 17);
-            this.label5.TabIndex = 8;
-            this.label5.Text = "Letiltás állapota:";
+            this.btnBezaras.ForeColor = System.Drawing.Color.Red;
+            this.btnBezaras.Location = new System.Drawing.Point(13, 275);
+            this.btnBezaras.Name = "btnBezaras";
+            this.btnBezaras.Size = new System.Drawing.Size(310, 32);
+            this.btnBezaras.TabIndex = 1;
+            this.btnBezaras.Text = "Ablak bezárása";
+            this.btnBezaras.UseVisualStyleBackColor = true;
+            this.btnBezaras.Click += new System.EventHandler(this.button1_Click);
             // 
             // KartyaLekerdezes
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(335, 320);
-            this.Controls.Add(this.button1);
+            this.Controls.Add(this.btnBezaras);
             this.Controls.Add(this.groupBox1);
             this.MaximizeBox = false;
+            this.MaximumSize = new System.Drawing.Size(353, 367);
+            this.MinimumSize = new System.Drawing.Size(353, 367);
             this.Name = "KartyaLekerdezes";
             this.Text = "Részletes adatok";
             this.groupBox1.ResumeLayout(false);
@@ -184,17 +187,17 @@ namespace KartyaKezelo
 
         #endregion
 
-        private System.Windows.Forms.GroupBox groupBox1;
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.TextBox tbKartyatipus;
-        private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.TextBox tbLejarat;
-        private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.TextBox tbKartyaszam;
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.TextBox tbLetiltva;
-        private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.TextBox tbCvc;
-        private System.Windows.Forms.Label label4;
+        protected System.Windows.Forms.GroupBox groupBox1;
+        protected System.Windows.Forms.Label label1;
+        protected System.Windows.Forms.TextBox tbKartyatipus;
+        protected System.Windows.Forms.Label label3;
+        protected System.Windows.Forms.TextBox tbLejarat;
+        protected System.Windows.Forms.Label label2;
+        protected System.Windows.Forms.TextBox tbKartyaszam;
+        protected System.Windows.Forms.Button btnBezaras;
+        protected System.Windows.Forms.TextBox tbLetiltva;
+        protected System.Windows.Forms.Label label5;
+        protected System.Windows.Forms.TextBox tbCvc;
+        protected System.Windows.Forms.Label label4;
     }
 }
