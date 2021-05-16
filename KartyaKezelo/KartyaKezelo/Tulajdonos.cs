@@ -13,6 +13,11 @@
             this.Telefonszam = telefonszam;
         }
 
+        public Tulajdonos()
+        {
+
+        }
+
         public int Id { get => id; set => id = value; }
         public string Nev { get => nev; set => nev = value; }
         public string Email { get => email; set => email = value; }

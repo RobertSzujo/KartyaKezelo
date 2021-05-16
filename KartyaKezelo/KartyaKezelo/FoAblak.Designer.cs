@@ -40,9 +40,9 @@ namespace KartyaKezelo
             this.btnValidateCard = new System.Windows.Forms.Button();
             this.btnCreateCard = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.tbKartyaszam = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
-            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.tbKartyatulajdonos = new System.Windows.Forms.TextBox();
             this.groupBox2.SuspendLayout();
             this.groupBox3.SuspendLayout();
             this.SuspendLayout();
@@ -134,6 +134,7 @@ namespace KartyaKezelo
             this.btnExit.TabIndex = 5;
             this.btnExit.Text = "Kilépés a programból";
             this.btnExit.UseVisualStyleBackColor = true;
+            this.btnExit.Click += new System.EventHandler(this.btnExit_Click);
             // 
             // btnValidateCard
             // 
@@ -166,14 +167,14 @@ namespace KartyaKezelo
             this.label1.Text = "Kiválasztott bankkártya:";
             this.label1.Click += new System.EventHandler(this.label1_Click_1);
             // 
-            // textBox1
+            // tbKartyaszam
             // 
-            this.textBox1.Location = new System.Drawing.Point(464, 12);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.ReadOnly = true;
-            this.textBox1.Size = new System.Drawing.Size(323, 22);
-            this.textBox1.TabIndex = 8;
-            this.textBox1.Text = "(nincs kiválasztva bankkártya)";
+            this.tbKartyaszam.Location = new System.Drawing.Point(464, 12);
+            this.tbKartyaszam.Name = "tbKartyaszam";
+            this.tbKartyaszam.ReadOnly = true;
+            this.tbKartyaszam.Size = new System.Drawing.Size(323, 22);
+            this.tbKartyaszam.TabIndex = 8;
+            this.tbKartyaszam.Text = "(nincs kiválasztva bankkártya)";
             // 
             // label2
             // 
@@ -185,23 +186,23 @@ namespace KartyaKezelo
             this.label2.Text = "Bankkártya tulajdonosa:";
             this.label2.Click += new System.EventHandler(this.label2_Click);
             // 
-            // textBox2
+            // tbKartyatulajdonos
             // 
-            this.textBox2.Location = new System.Drawing.Point(464, 40);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.ReadOnly = true;
-            this.textBox2.Size = new System.Drawing.Size(323, 22);
-            this.textBox2.TabIndex = 10;
-            this.textBox2.Text = "(nincs kiválasztva bankkártya)";
+            this.tbKartyatulajdonos.Location = new System.Drawing.Point(464, 40);
+            this.tbKartyatulajdonos.Name = "tbKartyatulajdonos";
+            this.tbKartyatulajdonos.ReadOnly = true;
+            this.tbKartyatulajdonos.Size = new System.Drawing.Size(323, 22);
+            this.tbKartyatulajdonos.TabIndex = 10;
+            this.tbKartyatulajdonos.Text = "(nincs kiválasztva bankkártya)";
             // 
             // FoAblak
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 362);
-            this.Controls.Add(this.textBox2);
+            this.Controls.Add(this.tbKartyatulajdonos);
             this.Controls.Add(this.label2);
-            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.tbKartyaszam);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.groupBox3);
             this.Controls.Add(this.groupBox2);
@@ -229,10 +230,10 @@ namespace KartyaKezelo
         private System.Windows.Forms.Button btnValidateCard;
         private System.Windows.Forms.Button btnExit;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox tbKartyaszam;
         private System.Windows.Forms.Button btnShowCardDetails;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.TextBox textBox2;
+        private System.Windows.Forms.TextBox tbKartyatulajdonos;
     }
 }
 

@@ -31,11 +31,11 @@ namespace KartyaKezelo
         {
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.textBox7 = new System.Windows.Forms.TextBox();
+            this.textBox5 = new System.Windows.Forms.TextBox();
             this.label7 = new System.Windows.Forms.Label();
+            this.label5 = new System.Windows.Forms.Label();
             this.textBox6 = new System.Windows.Forms.TextBox();
             this.label6 = new System.Windows.Forms.Label();
-            this.textBox5 = new System.Windows.Forms.TextBox();
-            this.label5 = new System.Windows.Forms.Label();
             this.button1 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
@@ -63,6 +63,13 @@ namespace KartyaKezelo
             this.textBox7.Size = new System.Drawing.Size(297, 22);
             this.textBox7.TabIndex = 19;
             // 
+            // textBox5
+            // 
+            this.textBox5.Location = new System.Drawing.Point(6, 45);
+            this.textBox5.Name = "textBox5";
+            this.textBox5.Size = new System.Drawing.Size(297, 22);
+            this.textBox5.TabIndex = 15;
+            // 
             // label7
             // 
             this.label7.AutoSize = true;
@@ -71,6 +78,15 @@ namespace KartyaKezelo
             this.label7.Size = new System.Drawing.Size(170, 17);
             this.label7.TabIndex = 18;
             this.label7.Text = "Tulajdonos telefonszáma:";
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(6, 25);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(117, 17);
+            this.label5.TabIndex = 14;
+            this.label5.Text = "Tulajdonos neve:";
             // 
             // textBox6
             // 
@@ -87,22 +103,6 @@ namespace KartyaKezelo
             this.label6.Size = new System.Drawing.Size(157, 17);
             this.label6.TabIndex = 16;
             this.label6.Text = "Tulajdonos e-mail címe:";
-            // 
-            // textBox5
-            // 
-            this.textBox5.Location = new System.Drawing.Point(6, 45);
-            this.textBox5.Name = "textBox5";
-            this.textBox5.Size = new System.Drawing.Size(297, 22);
-            this.textBox5.TabIndex = 15;
-            // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(6, 25);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(117, 17);
-            this.label5.TabIndex = 14;
-            this.label5.Text = "Tulajdonos neve:";
             // 
             // button1
             // 
@@ -123,6 +123,7 @@ namespace KartyaKezelo
             this.button2.TabIndex = 2;
             this.button2.Text = "Mentés kilépés nélkül";
             this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
             // TulajdonosLetrehozas
             // 
