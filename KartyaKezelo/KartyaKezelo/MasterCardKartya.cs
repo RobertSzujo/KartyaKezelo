@@ -10,7 +10,7 @@ namespace KartyaKezelo
     {
         public override string ToString()
         {
-            return this.Kartyaszam + "," + "MasterCard" + "," + "altípus," + this.Lejarat + "," + this.Cvc + "," + this.Letiltva.ToString() + "," + this.Tulajdonos.Id;
+            return this.Kartyaszam + "," + "MasterCard" + "," + this.Lejarat + "," + this.Cvc + "," + this.Letiltva.ToString() + "," + this.Tulajdonos.Id;
         }
     }
 }

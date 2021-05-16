@@ -14,6 +14,8 @@ namespace KartyaKezelo
     public partial class TulajdonosLetrehozas : Form
     {
         List<Tulajdonos> tulajdonosLista;
+
+        public Tulajdonos ujTulajdonos;
         public TulajdonosLetrehozas(List<Tulajdonos> tulajdonosok)
         {
             InitializeComponent();
@@ -27,17 +29,22 @@ namespace KartyaKezelo
 
         private void btnMentesKilepes_Click(object sender, EventArgs e)
         {
-            Tulajdonos tulajdonos = new Tulajdonos();
-            tulajdonos.Id = tulajdonosLista.Last().Id + 1;
-            tulajdonos.Nev = tbTulajdonosNeve.Text;
-            tulajdonos.Email = tbTulajdonosEmail.Text;
-            tulajdonos.Telefonszam = tbTulajdonosTel.Text;
+            ujTulajdonos = new Tulajdonos();
 
-            StreamWriter tulajdonosStreamWriter = new StreamWriter("Tulajdonosok.txt", true);
-            tulajdonosStreamWriter.WriteLine(tulajdonos.ToString());
-            tulajdonosStreamWriter.Close();
+            if (tulajdonosLista.Count > 0)
+            {
+                ujTulajdonos.Id = tulajdonosLista.Last().Id + 1;
+            }
+            else
+            {
+                ujTulajdonos.Id = 1;
+            }
+            ujTulajdonos.Nev = tbTulajdonosNeve.Text;
+            ujTulajdonos.Email = tbTulajdonosEmail.Text;
+            ujTulajdonos.Telefonszam = tbTulajdonosTel.Text;
 
             this.Close();
         }
+
     }
 }

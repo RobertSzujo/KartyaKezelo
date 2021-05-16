@@ -39,8 +39,6 @@ namespace KartyaKezelo
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.rbVisa = new System.Windows.Forms.RadioButton();
             this.rbMasterCard = new System.Windows.Forms.RadioButton();
-            this.groupBox3 = new System.Windows.Forms.GroupBox();
-            this.cbAltipus = new System.Windows.Forms.ComboBox();
             this.groupBox4 = new System.Windows.Forms.GroupBox();
             this.btnUjTulajdonos = new System.Windows.Forms.Button();
             this.lbTulajdonosok = new System.Windows.Forms.ListBox();
@@ -53,9 +51,9 @@ namespace KartyaKezelo
             this.label4 = new System.Windows.Forms.Label();
             this.tbTulajdonosNeve = new System.Windows.Forms.TextBox();
             this.label6 = new System.Windows.Forms.Label();
+            this.btnMentesListaba = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
-            this.groupBox3.SuspendLayout();
             this.groupBox4.SuspendLayout();
             this.groupBox5.SuspendLayout();
             this.SuspendLayout();
@@ -160,29 +158,11 @@ namespace KartyaKezelo
             this.rbMasterCard.UseVisualStyleBackColor = true;
             this.rbMasterCard.CheckedChanged += new System.EventHandler(this.rbMasterCard_CheckedChanged);
             // 
-            // groupBox3
-            // 
-            this.groupBox3.Controls.Add(this.cbAltipus);
-            this.groupBox3.Location = new System.Drawing.Point(12, 73);
-            this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Size = new System.Drawing.Size(217, 57);
-            this.groupBox3.TabIndex = 2;
-            this.groupBox3.TabStop = false;
-            this.groupBox3.Text = "Bankkártya altípusa";
-            // 
-            // cbAltipus
-            // 
-            this.cbAltipus.FormattingEnabled = true;
-            this.cbAltipus.Location = new System.Drawing.Point(6, 21);
-            this.cbAltipus.Name = "cbAltipus";
-            this.cbAltipus.Size = new System.Drawing.Size(204, 24);
-            this.cbAltipus.TabIndex = 0;
-            // 
             // groupBox4
             // 
             this.groupBox4.Controls.Add(this.btnUjTulajdonos);
             this.groupBox4.Controls.Add(this.lbTulajdonosok);
-            this.groupBox4.Location = new System.Drawing.Point(12, 137);
+            this.groupBox4.Location = new System.Drawing.Point(12, 73);
             this.groupBox4.Name = "groupBox4";
             this.groupBox4.Size = new System.Drawing.Size(217, 201);
             this.groupBox4.TabIndex = 3;
@@ -211,13 +191,12 @@ namespace KartyaKezelo
             // 
             // btnMentesKilepes
             // 
-            this.btnMentesKilepes.Enabled = false;
             this.btnMentesKilepes.ForeColor = System.Drawing.Color.Green;
             this.btnMentesKilepes.Location = new System.Drawing.Point(12, 345);
             this.btnMentesKilepes.Name = "btnMentesKilepes";
             this.btnMentesKilepes.Size = new System.Drawing.Size(292, 32);
             this.btnMentesKilepes.TabIndex = 4;
-            this.btnMentesKilepes.Text = "Új kártya elmentése és kilépés";
+            this.btnMentesKilepes.Text = "Kártya lista mentése és kilépés";
             this.btnMentesKilepes.UseVisualStyleBackColor = true;
             this.btnMentesKilepes.Click += new System.EventHandler(this.btnMentesKilepes_Click);
             // 
@@ -301,16 +280,28 @@ namespace KartyaKezelo
             this.label6.TabIndex = 0;
             this.label6.Text = "Tulajdonos neve";
             // 
+            // btnMentesListaba
+            // 
+            this.btnMentesListaba.Enabled = false;
+            this.btnMentesListaba.ForeColor = System.Drawing.Color.Blue;
+            this.btnMentesListaba.Location = new System.Drawing.Point(18, 293);
+            this.btnMentesListaba.Name = "btnMentesListaba";
+            this.btnMentesListaba.Size = new System.Drawing.Size(204, 32);
+            this.btnMentesListaba.TabIndex = 2;
+            this.btnMentesListaba.Text = "Kártya mentése listába";
+            this.btnMentesListaba.UseVisualStyleBackColor = true;
+            this.btnMentesListaba.Click += new System.EventHandler(this.btnMentesListaba_Click);
+            // 
             // KartyaLetrehozas
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(641, 388);
+            this.Controls.Add(this.btnMentesListaba);
             this.Controls.Add(this.groupBox5);
             this.Controls.Add(this.btnKilepes);
             this.Controls.Add(this.btnMentesKilepes);
             this.Controls.Add(this.groupBox4);
-            this.Controls.Add(this.groupBox3);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
             this.MaximizeBox = false;
@@ -322,7 +313,6 @@ namespace KartyaKezelo
             this.groupBox1.PerformLayout();
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
-            this.groupBox3.ResumeLayout(false);
             this.groupBox4.ResumeLayout(false);
             this.groupBox5.ResumeLayout(false);
             this.groupBox5.PerformLayout();
@@ -342,8 +332,6 @@ namespace KartyaKezelo
         private System.Windows.Forms.GroupBox groupBox2;
         private System.Windows.Forms.RadioButton rbVisa;
         private System.Windows.Forms.RadioButton rbMasterCard;
-        private System.Windows.Forms.GroupBox groupBox3;
-        private System.Windows.Forms.ComboBox cbAltipus;
         private System.Windows.Forms.GroupBox groupBox4;
         private System.Windows.Forms.Button btnUjTulajdonos;
         private System.Windows.Forms.ListBox lbTulajdonosok;
@@ -356,5 +344,6 @@ namespace KartyaKezelo
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.TextBox tbTulajdonosNeve;
         private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.Button btnMentesListaba;
     }
 }

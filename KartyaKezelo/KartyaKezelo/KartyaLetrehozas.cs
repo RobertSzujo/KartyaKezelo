@@ -17,6 +17,8 @@ namespace KartyaKezelo
         List<Tulajdonos> tulajdonosLista;
         Tulajdonos kivalasztottTulajdonos;
 
+        public List<Kartya> ujKartyak = new List<Kartya>();
+
         public KartyaLetrehozas(List<Tulajdonos> tulajdonosok)
         {
             InitializeComponent();
@@ -35,12 +37,16 @@ namespace KartyaKezelo
 
         private void button3_Click(object sender, EventArgs e)
         {
+            if (ujKartyak.Count > 0)
+            {
+                ujKartyak.Clear();
+            }
             this.Close();
         }
 
         private void rbMasterCard_CheckedChanged(object sender, EventArgs e)
         {
-            btnMentesKilepes.Enabled = true;
+            btnMentesListaba.Enabled = true;
         }
 
         private void lbTulajdonosok_SelectedIndexChanged(object sender, EventArgs e)
@@ -59,7 +65,7 @@ namespace KartyaKezelo
 
         private void rbVisa_CheckedChanged(object sender, EventArgs e)
         {
-            btnMentesKilepes.Enabled = true;
+            btnMentesListaba.Enabled = true;
         }
 
         private void btnUjTulajdonos_Click(object sender, EventArgs e)
@@ -67,11 +73,22 @@ namespace KartyaKezelo
             TulajdonosLetrehozas tulajdonosLetrehozas = new TulajdonosLetrehozas(tulajdonosLista);
             tulajdonosLetrehozas.ShowDialog();
 
-            lbTulajdonosok.Items.Clear();
-            TulajdonosokFeltoltese();
+            if (tulajdonosLetrehozas.ujTulajdonos != null)
+            {
+                StreamWriter tulajdonosStreamWriter = new StreamWriter("Tulajdonosok.txt", true);
+                tulajdonosStreamWriter.WriteLine(tulajdonosLetrehozas.ujTulajdonos.ToString());
+                tulajdonosStreamWriter.Close();
+                tulajdonosLista.Add(tulajdonosLetrehozas.ujTulajdonos);
+                lbTulajdonosok.Items.Add(tulajdonosLetrehozas.ujTulajdonos.Id + ": " + tulajdonosLetrehozas.ujTulajdonos.Nev);
+            }
         }
 
         private void btnMentesKilepes_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
+        private void btnMentesListaba_Click(object sender, EventArgs e)
         {
             //TODO: input checkek elkészítése
 
@@ -91,11 +108,11 @@ namespace KartyaKezelo
             kartya.Letiltva = false;
             kartya.Tulajdonos = kivalasztottTulajdonos;
 
-            StreamWriter kartyaStreamWriter = new StreamWriter("Kartyak.txt", true);
-            kartyaStreamWriter.WriteLine(kartya.ToString());
-            kartyaStreamWriter.Close();
+            ujKartyak.Add(kartya);
 
-            this.Close();
+            tbBankkartyaSzam.Text = "";
+            dtpLejarat.Text = "";
+            tbCvc.Text = "";
         }
     }
 }

@@ -14,8 +14,8 @@ namespace KartyaKezelo
 {
     public partial class FoAblak : Form
     {
-        List<Tulajdonos> tulajdonosok;
-        List<Kartya> kartyak;
+        List<Tulajdonos> tulajdonosok = new List<Tulajdonos>();
+        List<Kartya> kartyak = new List<Kartya>();
         Kartya kivalasztottKartya;
 
         public FoAblak()
@@ -26,6 +26,7 @@ namespace KartyaKezelo
 
         private void AdatokBetoltese()
         {
+
             TulajdonosokBetoltese();
             KartyakBetoltese();
             KartyaListaFeltoltes();
@@ -33,51 +34,57 @@ namespace KartyaKezelo
 
         public void TulajdonosokBetoltese()
         {
-            tulajdonosok = new List<Tulajdonos>();
-            StreamReader tulajdonosStreamReader = new StreamReader("Tulajdonosok.txt");
-            while (!tulajdonosStreamReader.EndOfStream)
+            if (File.Exists("Tulajdonosok.txt"))
             {
-                string[] sor = tulajdonosStreamReader.ReadLine().Split(',');
-                Tulajdonos tulajdonos = new Tulajdonos();
-                tulajdonos.Id = Convert.ToInt32(sor[0]);
-                tulajdonos.Nev = sor[1];
-                tulajdonos.Email = sor[2];
-                tulajdonos.Telefonszam = sor[3];
+                StreamReader tulajdonosStreamReader = new StreamReader("Tulajdonosok.txt");
+                while (!tulajdonosStreamReader.EndOfStream)
+                {
+                    string[] sor = tulajdonosStreamReader.ReadLine().Split(',');
+                    Tulajdonos tulajdonos = new Tulajdonos();
+                    tulajdonos.Id = Convert.ToInt32(sor[0]);
+                    tulajdonos.Nev = sor[1];
+                    tulajdonos.Email = sor[2];
+                    tulajdonos.Telefonszam = sor[3];
 
-                tulajdonosok.Add(tulajdonos);
+                    tulajdonosok.Add(tulajdonos);
+                }
+                tulajdonosStreamReader.Close();
             }
-            tulajdonosStreamReader.Close();
+            
         }
 
         public void KartyakBetoltese()
         {
-            kartyak = new List<Kartya>();
-            StreamReader kartyaStreamReader = new StreamReader("Kartyak.txt");
-            while (!kartyaStreamReader.EndOfStream)
+            if (File.Exists("Kartyak.txt"))
             {
-                Kartya kartya = new Kartya();
-                string[] sor = kartyaStreamReader.ReadLine().Split(',');
-
-                if (sor[1] == "MasterCard")
+                StreamReader kartyaStreamReader = new StreamReader("Kartyak.txt");
+                while (!kartyaStreamReader.EndOfStream)
                 {
-                    kartya = new MasterCardKartya();
+                    Kartya kartya = new Kartya();
+                    string[] sor = kartyaStreamReader.ReadLine().Split(',');
+
+                    if (sor[1] == "MasterCard")
+                    {
+                        kartya = new MasterCardKartya();
+                    }
+                    else if (sor[1] == "VISA")
+                    {
+                        kartya = new VisaKartya();
+                    }
+
+                    //TODO: altípus hozzáadása (vagy kitörlése teljesen)
+
+                    kartya.Kartyaszam = sor[0];
+                    kartya.Lejarat = sor[2];
+                    kartya.Cvc = sor[3];
+                    kartya.Letiltva = bool.Parse(sor[4]);
+                    kartya.Tulajdonos = tulajdonosok.Find(tulajdonos => tulajdonos.Id == int.Parse(sor[5]));
+
+                    kartyak.Add(kartya);
                 }
-                else if (sor[1] == "VISA")
-                {
-                    kartya = new VisaKartya();
-                }
-
-                //TODO: altípus hozzáadása (vagy kitörlése teljesen)
-
-                kartya.Kartyaszam = sor[0];
-                kartya.Lejarat = sor[3];
-                kartya.Cvc = sor[4];
-                kartya.Letiltva = bool.Parse(sor[5]);
-                kartya.Tulajdonos = tulajdonosok.Find(tulajdonos => tulajdonos.Id == int.Parse(sor[6]));
-
-                kartyak.Add(kartya);
+                kartyaStreamReader.Close();
             }
-            kartyaStreamReader.Close();
+            
         }
 
         public void KartyaListaFeltoltes()
@@ -127,6 +134,17 @@ namespace KartyaKezelo
         {
             KartyaLetrehozas kartyaLetrehozas = new KartyaLetrehozas(tulajdonosok);
             kartyaLetrehozas.ShowDialog();
+
+            if (kartyaLetrehozas.ujKartyak.Count > 0)
+            {
+                StreamWriter kartyaStreamWriter = new StreamWriter("Kartyak.txt", true);
+                foreach (Kartya ujKartya in kartyaLetrehozas.ujKartyak)
+                {
+                    kartyaStreamWriter.WriteLine(ujKartya.ToString());
+                }
+                kartyaStreamWriter.Close();
+            }
+
             AdatokUritese();
             AdatokBetoltese();
 
@@ -134,10 +152,18 @@ namespace KartyaKezelo
 
         private void AdatokUritese()
         {
-            tulajdonosok.Clear();
-            kartyak.Clear();
-            lbCards.Items.Clear();
-
+            if (kartyak.Count > 0)
+            {
+                kartyak.Clear();
+            }
+            if (tulajdonosok.Count > 0)
+            {
+                tulajdonosok.Clear();
+            }
+            if (lbCards.Items.Count > 0)
+            {
+                lbCards.Items.Clear();
+            }
         }
 
         private void button5_Click(object sender, EventArgs e)

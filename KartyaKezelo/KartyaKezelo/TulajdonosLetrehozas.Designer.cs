@@ -107,7 +107,7 @@ namespace KartyaKezelo
             // btnMentesKilepes
             // 
             this.btnMentesKilepes.ForeColor = System.Drawing.Color.Green;
-            this.btnMentesKilepes.Location = new System.Drawing.Point(13, 191);
+            this.btnMentesKilepes.Location = new System.Drawing.Point(13, 190);
             this.btnMentesKilepes.Name = "btnMentesKilepes";
             this.btnMentesKilepes.Size = new System.Drawing.Size(312, 32);
             this.btnMentesKilepes.TabIndex = 1;
@@ -118,7 +118,7 @@ namespace KartyaKezelo
             // btnKilepes
             // 
             this.btnKilepes.ForeColor = System.Drawing.Color.Red;
-            this.btnKilepes.Location = new System.Drawing.Point(14, 229);
+            this.btnKilepes.Location = new System.Drawing.Point(13, 228);
             this.btnKilepes.Name = "btnKilepes";
             this.btnKilepes.Size = new System.Drawing.Size(312, 32);
             this.btnKilepes.TabIndex = 2;
@@ -130,13 +130,11 @@ namespace KartyaKezelo
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(338, 276);
+            this.ClientSize = new System.Drawing.Size(338, 278);
             this.Controls.Add(this.btnKilepes);
             this.Controls.Add(this.btnMentesKilepes);
             this.Controls.Add(this.groupBox1);
             this.MaximizeBox = false;
-            this.MaximumSize = new System.Drawing.Size(356, 323);
-            this.MinimumSize = new System.Drawing.Size(356, 323);
             this.Name = "TulajdonosLetrehozas";
             this.Text = "Új tulajdonos létrehozása";
             this.groupBox1.ResumeLayout(false);
