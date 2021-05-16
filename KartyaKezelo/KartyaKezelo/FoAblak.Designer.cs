@@ -32,17 +32,17 @@ namespace KartyaKezelo
             this.lbCards = new System.Windows.Forms.ListBox();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.btnShowCardDetails = new System.Windows.Forms.Button();
+            this.btnKartyaEsTulajdonosAdatok = new System.Windows.Forms.Button();
             this.btnRemoveCard = new System.Windows.Forms.Button();
             this.btnDisableCard = new System.Windows.Forms.Button();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.btnExit = new System.Windows.Forms.Button();
-            this.btnValidateCard = new System.Windows.Forms.Button();
             this.btnCreateCard = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.tbKartyaszam = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.tbKartyatulajdonos = new System.Windows.Forms.TextBox();
+            this.btnKartyaAdatok = new System.Windows.Forms.Button();
             this.groupBox2.SuspendLayout();
             this.groupBox3.SuspendLayout();
             this.SuspendLayout();
@@ -69,32 +69,33 @@ namespace KartyaKezelo
             // 
             // groupBox2
             // 
-            this.groupBox2.Controls.Add(this.btnShowCardDetails);
+            this.groupBox2.Controls.Add(this.btnKartyaAdatok);
+            this.groupBox2.Controls.Add(this.btnKartyaEsTulajdonosAdatok);
             this.groupBox2.Controls.Add(this.btnRemoveCard);
             this.groupBox2.Controls.Add(this.btnDisableCard);
             this.groupBox2.Location = new System.Drawing.Point(298, 68);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(490, 139);
+            this.groupBox2.Size = new System.Drawing.Size(490, 176);
             this.groupBox2.TabIndex = 5;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Műveletek a kiválasztott kártyával";
             this.groupBox2.Enter += new System.EventHandler(this.groupBox2_Enter);
             // 
-            // btnShowCardDetails
+            // btnKartyaEsTulajdonosAdatok
             // 
-            this.btnShowCardDetails.Enabled = false;
-            this.btnShowCardDetails.Location = new System.Drawing.Point(6, 20);
-            this.btnShowCardDetails.Name = "btnShowCardDetails";
-            this.btnShowCardDetails.Size = new System.Drawing.Size(478, 32);
-            this.btnShowCardDetails.TabIndex = 3;
-            this.btnShowCardDetails.Text = "Kártya részletes adatainak lekérdezése";
-            this.btnShowCardDetails.UseVisualStyleBackColor = true;
-            this.btnShowCardDetails.Click += new System.EventHandler(this.button1_Click_1);
+            this.btnKartyaEsTulajdonosAdatok.Enabled = false;
+            this.btnKartyaEsTulajdonosAdatok.Location = new System.Drawing.Point(6, 62);
+            this.btnKartyaEsTulajdonosAdatok.Name = "btnKartyaEsTulajdonosAdatok";
+            this.btnKartyaEsTulajdonosAdatok.Size = new System.Drawing.Size(478, 32);
+            this.btnKartyaEsTulajdonosAdatok.TabIndex = 3;
+            this.btnKartyaEsTulajdonosAdatok.Text = "Kártya és tulajdonos adatainak lekérdezése";
+            this.btnKartyaEsTulajdonosAdatok.UseVisualStyleBackColor = true;
+            this.btnKartyaEsTulajdonosAdatok.Click += new System.EventHandler(this.button1_Click_1);
             // 
             // btnRemoveCard
             // 
             this.btnRemoveCard.Enabled = false;
-            this.btnRemoveCard.Location = new System.Drawing.Point(7, 96);
+            this.btnRemoveCard.Location = new System.Drawing.Point(6, 138);
             this.btnRemoveCard.Name = "btnRemoveCard";
             this.btnRemoveCard.Size = new System.Drawing.Size(478, 32);
             this.btnRemoveCard.TabIndex = 2;
@@ -104,7 +105,7 @@ namespace KartyaKezelo
             // btnDisableCard
             // 
             this.btnDisableCard.Enabled = false;
-            this.btnDisableCard.Location = new System.Drawing.Point(6, 58);
+            this.btnDisableCard.Location = new System.Drawing.Point(6, 100);
             this.btnDisableCard.Name = "btnDisableCard";
             this.btnDisableCard.Size = new System.Drawing.Size(478, 32);
             this.btnDisableCard.TabIndex = 1;
@@ -115,11 +116,10 @@ namespace KartyaKezelo
             // groupBox3
             // 
             this.groupBox3.Controls.Add(this.btnExit);
-            this.groupBox3.Controls.Add(this.btnValidateCard);
             this.groupBox3.Controls.Add(this.btnCreateCard);
-            this.groupBox3.Location = new System.Drawing.Point(298, 213);
+            this.groupBox3.Location = new System.Drawing.Point(298, 250);
             this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Size = new System.Drawing.Size(490, 136);
+            this.groupBox3.Size = new System.Drawing.Size(490, 99);
             this.groupBox3.TabIndex = 6;
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "Egyéb műveletek";
@@ -128,24 +128,13 @@ namespace KartyaKezelo
             // btnExit
             // 
             this.btnExit.ForeColor = System.Drawing.Color.Red;
-            this.btnExit.Location = new System.Drawing.Point(6, 97);
+            this.btnExit.Location = new System.Drawing.Point(6, 59);
             this.btnExit.Name = "btnExit";
             this.btnExit.Size = new System.Drawing.Size(478, 32);
             this.btnExit.TabIndex = 5;
             this.btnExit.Text = "Kilépés a programból";
             this.btnExit.UseVisualStyleBackColor = true;
             this.btnExit.Click += new System.EventHandler(this.btnExit_Click);
-            // 
-            // btnValidateCard
-            // 
-            this.btnValidateCard.Enabled = false;
-            this.btnValidateCard.Location = new System.Drawing.Point(6, 59);
-            this.btnValidateCard.Name = "btnValidateCard";
-            this.btnValidateCard.Size = new System.Drawing.Size(478, 32);
-            this.btnValidateCard.TabIndex = 4;
-            this.btnValidateCard.Text = "Kártya érvényességének ellenőrzése";
-            this.btnValidateCard.UseVisualStyleBackColor = true;
-            this.btnValidateCard.Click += new System.EventHandler(this.button5_Click);
             // 
             // btnCreateCard
             // 
@@ -181,9 +170,9 @@ namespace KartyaKezelo
             this.label2.AutoSize = true;
             this.label2.Location = new System.Drawing.Point(300, 43);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(160, 17);
+            this.label2.Size = new System.Drawing.Size(125, 17);
             this.label2.TabIndex = 9;
-            this.label2.Text = "Bankkártya tulajdonosa:";
+            this.label2.Text = "Bankkártya típusa:";
             this.label2.Click += new System.EventHandler(this.label2_Click);
             // 
             // tbKartyatulajdonos
@@ -194,6 +183,17 @@ namespace KartyaKezelo
             this.tbKartyatulajdonos.Size = new System.Drawing.Size(323, 22);
             this.tbKartyatulajdonos.TabIndex = 10;
             this.tbKartyatulajdonos.Text = "(nincs kiválasztva bankkártya)";
+            // 
+            // btnKartyaAdatok
+            // 
+            this.btnKartyaAdatok.Enabled = false;
+            this.btnKartyaAdatok.Location = new System.Drawing.Point(6, 24);
+            this.btnKartyaAdatok.Name = "btnKartyaAdatok";
+            this.btnKartyaAdatok.Size = new System.Drawing.Size(478, 32);
+            this.btnKartyaAdatok.TabIndex = 4;
+            this.btnKartyaAdatok.Text = "Kártya adatainak lekérdezése";
+            this.btnKartyaAdatok.UseVisualStyleBackColor = true;
+            this.btnKartyaAdatok.Click += new System.EventHandler(this.btnKartyaAdatok_Click);
             // 
             // FoAblak
             // 
@@ -227,13 +227,13 @@ namespace KartyaKezelo
         private System.Windows.Forms.Button btnDisableCard;
         private System.Windows.Forms.GroupBox groupBox3;
         private System.Windows.Forms.Button btnCreateCard;
-        private System.Windows.Forms.Button btnValidateCard;
         private System.Windows.Forms.Button btnExit;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.TextBox tbKartyaszam;
-        private System.Windows.Forms.Button btnShowCardDetails;
+        private System.Windows.Forms.Button btnKartyaEsTulajdonosAdatok;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.TextBox tbKartyatulajdonos;
+        private System.Windows.Forms.Button btnKartyaAdatok;
     }
 }
 

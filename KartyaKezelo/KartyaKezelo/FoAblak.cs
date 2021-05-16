@@ -143,10 +143,10 @@ namespace KartyaKezelo
                     kartyaStreamWriter.WriteLine(ujKartya.ToString());
                 }
                 kartyaStreamWriter.Close();
-            }
 
-            AdatokUritese();
-            AdatokBetoltese();
+                AdatokUritese();
+                AdatokBetoltese();
+            }
 
         }
 
@@ -178,9 +178,8 @@ namespace KartyaKezelo
 
         private void button1_Click_1(object sender, EventArgs e)
         {
-            String kartyaszam = lbCards.SelectedItem.ToString();
-            KartyaLekerdezes kartyaLekerdezes = new KartyaLekerdezes(kivalasztottKartya);
-            kartyaLekerdezes.ShowDialog();
+            KartyaEsTulajdonosLekerdezes kartyaEsTulajdonosLekerdezes = new KartyaEsTulajdonosLekerdezes(kivalasztottKartya);
+            kartyaEsTulajdonosLekerdezes.ShowDialog();
         }
 
         private void label2_Click(object sender, EventArgs e)
@@ -197,7 +196,8 @@ namespace KartyaKezelo
                 tbKartyaszam.Text = kivalasztottKartya.Kartyaszam;
                 tbKartyatulajdonos.Text = kivalasztottKartya.Tulajdonos.Nev;
 
-                btnShowCardDetails.Enabled = true;
+                btnKartyaAdatok.Enabled = true;
+                btnKartyaEsTulajdonosAdatok.Enabled = true;
                 //Ezeket még el kell készíteni!
                 btnDisableCard.Enabled = false;
                 btnRemoveCard.Enabled = false;
@@ -208,6 +208,12 @@ namespace KartyaKezelo
         private void btnExit_Click(object sender, EventArgs e)
         {
             this.Close();
+        }
+
+        private void btnKartyaAdatok_Click(object sender, EventArgs e)
+        {
+            KartyaLekerdezes kartyaLekerdezes = new KartyaLekerdezes(kivalasztottKartya);
+            kartyaLekerdezes.ShowDialog();
         }
     }
 }

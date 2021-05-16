@@ -53,6 +53,12 @@
       <DependentUpon>FoAblak.cs</DependentUpon>
     </Compile>
     <Compile Include="Kartya.cs" />
+    <Compile Include="KartyaEsTulajdonosLekerdezes.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="KartyaEsTulajdonosLekerdezes.Designer.cs">
+      <DependentUpon>KartyaEsTulajdonosLekerdezes.cs</DependentUpon>
+    </Compile>
     <Compile Include="KartyaLekerdezes.cs">
       <SubType>Form</SubType>
     </Compile>

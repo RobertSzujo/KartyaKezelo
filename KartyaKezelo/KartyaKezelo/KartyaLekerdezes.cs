@@ -15,12 +15,15 @@ namespace KartyaKezelo
         public KartyaLekerdezes(Kartya kartya)
         {
             InitializeComponent();
+            KartyaAdatokFeltoltese(kartya);
+        }
+
+        protected void KartyaAdatokFeltoltese(Kartya kartya)
+        {
             tbKartyaszam.Text = kartya.Kartyaszam;
             tbLejarat.Text = kartya.Lejarat;
             tbLetiltva.Text = Convert.ToString(kartya.Letiltva);
-            tbTulajdonosnev.Text = kartya.Tulajdonos.Nev;
-            tbTulajdonosemail.Text = kartya.Tulajdonos.Email;
-            tbTulajdonostel.Text = kartya.Tulajdonos.Telefonszam;
+            tbCvc.Text = kartya.Cvc;
 
             if (kartya.GetType() == typeof(MasterCardKartya))
             {
