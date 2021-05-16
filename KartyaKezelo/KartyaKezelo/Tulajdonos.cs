@@ -1,6 +1,6 @@
 ﻿namespace KartyaKezelo
 {
-    internal class Tulajdonos
+    public class Tulajdonos
     {
         int id;
         string nev, email, telefonszam;

@@ -6,8 +6,8 @@ using System.Threading.Tasks;
 
 namespace KartyaKezelo
 {
-    public enum Tipus { MasterCard, Visa };
-    class Kartya
+    public enum Tipus { MasterCard, VISA };
+    public class Kartya
     {
         String lejarat;
         bool letiltva;

@@ -12,9 +12,16 @@ namespace KartyaKezelo
 {
     public partial class KartyaLekerdezes : Form
     {
-        public KartyaLekerdezes()
+        public KartyaLekerdezes(String kartyaszam, Kartya kartya)
         {
             InitializeComponent();
+            tbKartyatipus.Text = Convert.ToString(kartya.Tipus);
+            tbKartyaszam.Text = kartyaszam;
+            tbLejarat.Text = kartya.Lejarat;
+            tbLetiltva.Text = Convert.ToString(kartya.Letiltva);
+            tbTulajdonosnev.Text = kartya.Tulajdonos.Nev;
+            tbTulajdonosemail.Text = kartya.Tulajdonos.Email;
+            tbTulajdonostel.Text = kartya.Tulajdonos.Telefonszam;
         }
 
         private void groupBox1_Enter(object sender, EventArgs e)

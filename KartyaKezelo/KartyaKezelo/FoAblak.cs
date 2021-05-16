@@ -122,7 +122,8 @@ namespace KartyaKezelo
 
         private void button1_Click_1(object sender, EventArgs e)
         {
-            KartyaLekerdezes kartyaLekerdezes = new KartyaLekerdezes();
+            String kartyaszam = lbCards.SelectedItem.ToString();
+            KartyaLekerdezes kartyaLekerdezes = new KartyaLekerdezes(kartyaszam, kartyak[kartyaszam]);
             kartyaLekerdezes.ShowDialog();
         }
 
@@ -137,8 +138,9 @@ namespace KartyaKezelo
             tbKartyatulajdonos.Text = kartyak[lbCards.SelectedItem.ToString()].Tulajdonos.Nev;
 
             btnShowCardDetails.Enabled = true;
-            btnDisableCard.Enabled = true;
-            btnRemoveCard.Enabled = true;
+            //Ezeket még el kell készíteni!
+            btnDisableCard.Enabled = false;
+            btnRemoveCard.Enabled = false;
         }
 
         private void btnExit_Click(object sender, EventArgs e)
