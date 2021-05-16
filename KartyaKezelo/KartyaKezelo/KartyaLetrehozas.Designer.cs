@@ -30,28 +30,28 @@ namespace KartyaKezelo
         private void InitializeComponent()
         {
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.tbCvc = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
-            this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
+            this.dtpLejarat = new System.Windows.Forms.DateTimePicker();
             this.label2 = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.tbBankkartyaSzam = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.radioButton2 = new System.Windows.Forms.RadioButton();
-            this.radioButton1 = new System.Windows.Forms.RadioButton();
+            this.rbVisa = new System.Windows.Forms.RadioButton();
+            this.rbMasterCard = new System.Windows.Forms.RadioButton();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.cbAltipus = new System.Windows.Forms.ComboBox();
             this.groupBox4 = new System.Windows.Forms.GroupBox();
-            this.button1 = new System.Windows.Forms.Button();
-            this.listBox1 = new System.Windows.Forms.ListBox();
-            this.button2 = new System.Windows.Forms.Button();
-            this.button3 = new System.Windows.Forms.Button();
+            this.btnUjTulajdonos = new System.Windows.Forms.Button();
+            this.lbTulajdonosok = new System.Windows.Forms.ListBox();
+            this.btnMentesKilepes = new System.Windows.Forms.Button();
+            this.btnKilepes = new System.Windows.Forms.Button();
             this.groupBox5 = new System.Windows.Forms.GroupBox();
-            this.textBox5 = new System.Windows.Forms.TextBox();
+            this.tbTulajdonosTel = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
-            this.textBox3 = new System.Windows.Forms.TextBox();
+            this.tbTulajdonosEmail = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
-            this.textBox4 = new System.Windows.Forms.TextBox();
+            this.tbTulajdonosNeve = new System.Windows.Forms.TextBox();
             this.label6 = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
@@ -62,11 +62,11 @@ namespace KartyaKezelo
             // 
             // groupBox1
             // 
-            this.groupBox1.Controls.Add(this.textBox2);
+            this.groupBox1.Controls.Add(this.tbCvc);
             this.groupBox1.Controls.Add(this.label3);
-            this.groupBox1.Controls.Add(this.dateTimePicker1);
+            this.groupBox1.Controls.Add(this.dtpLejarat);
             this.groupBox1.Controls.Add(this.label2);
-            this.groupBox1.Controls.Add(this.textBox1);
+            this.groupBox1.Controls.Add(this.tbBankkartyaSzam);
             this.groupBox1.Controls.Add(this.label1);
             this.groupBox1.Location = new System.Drawing.Point(235, 13);
             this.groupBox1.Name = "groupBox1";
@@ -75,12 +75,12 @@ namespace KartyaKezelo
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Bankkártya adatai";
             // 
-            // textBox2
+            // tbCvc
             // 
-            this.textBox2.Location = new System.Drawing.Point(6, 133);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(382, 22);
-            this.textBox2.TabIndex = 7;
+            this.tbCvc.Location = new System.Drawing.Point(6, 133);
+            this.tbCvc.Name = "tbCvc";
+            this.tbCvc.Size = new System.Drawing.Size(382, 22);
+            this.tbCvc.TabIndex = 7;
             // 
             // label3
             // 
@@ -91,14 +91,14 @@ namespace KartyaKezelo
             this.label3.TabIndex = 6;
             this.label3.Text = "CVC kód";
             // 
-            // dateTimePicker1
+            // dtpLejarat
             // 
-            this.dateTimePicker1.CustomFormat = "MM/yy";
-            this.dateTimePicker1.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.dateTimePicker1.Location = new System.Drawing.Point(7, 88);
-            this.dateTimePicker1.Name = "dateTimePicker1";
-            this.dateTimePicker1.Size = new System.Drawing.Size(381, 22);
-            this.dateTimePicker1.TabIndex = 5;
+            this.dtpLejarat.CustomFormat = "MM/yy";
+            this.dtpLejarat.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
+            this.dtpLejarat.Location = new System.Drawing.Point(7, 88);
+            this.dtpLejarat.Name = "dtpLejarat";
+            this.dtpLejarat.Size = new System.Drawing.Size(381, 22);
+            this.dtpLejarat.TabIndex = 5;
             // 
             // label2
             // 
@@ -109,12 +109,12 @@ namespace KartyaKezelo
             this.label2.TabIndex = 2;
             this.label2.Text = "Lejárat dátuma";
             // 
-            // textBox1
+            // tbBankkartyaSzam
             // 
-            this.textBox1.Location = new System.Drawing.Point(7, 43);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(381, 22);
-            this.textBox1.TabIndex = 1;
+            this.tbBankkartyaSzam.Location = new System.Drawing.Point(7, 43);
+            this.tbBankkartyaSzam.Name = "tbBankkartyaSzam";
+            this.tbBankkartyaSzam.Size = new System.Drawing.Size(381, 22);
+            this.tbBankkartyaSzam.TabIndex = 1;
             // 
             // label1
             // 
@@ -127,8 +127,8 @@ namespace KartyaKezelo
             // 
             // groupBox2
             // 
-            this.groupBox2.Controls.Add(this.radioButton2);
-            this.groupBox2.Controls.Add(this.radioButton1);
+            this.groupBox2.Controls.Add(this.rbVisa);
+            this.groupBox2.Controls.Add(this.rbMasterCard);
             this.groupBox2.Location = new System.Drawing.Point(12, 13);
             this.groupBox2.Name = "groupBox2";
             this.groupBox2.Size = new System.Drawing.Size(217, 54);
@@ -136,31 +136,32 @@ namespace KartyaKezelo
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Bankkártya típusa";
             // 
-            // radioButton2
+            // rbVisa
             // 
-            this.radioButton2.AutoSize = true;
-            this.radioButton2.Location = new System.Drawing.Point(152, 21);
-            this.radioButton2.Name = "radioButton2";
-            this.radioButton2.Size = new System.Drawing.Size(59, 21);
-            this.radioButton2.TabIndex = 1;
-            this.radioButton2.TabStop = true;
-            this.radioButton2.Text = "VISA";
-            this.radioButton2.UseVisualStyleBackColor = true;
+            this.rbVisa.AutoSize = true;
+            this.rbVisa.Location = new System.Drawing.Point(152, 21);
+            this.rbVisa.Name = "rbVisa";
+            this.rbVisa.Size = new System.Drawing.Size(59, 21);
+            this.rbVisa.TabIndex = 1;
+            this.rbVisa.TabStop = true;
+            this.rbVisa.Text = "VISA";
+            this.rbVisa.UseVisualStyleBackColor = true;
             // 
-            // radioButton1
+            // rbMasterCard
             // 
-            this.radioButton1.AutoSize = true;
-            this.radioButton1.Location = new System.Drawing.Point(6, 21);
-            this.radioButton1.Name = "radioButton1";
-            this.radioButton1.Size = new System.Drawing.Size(102, 21);
-            this.radioButton1.TabIndex = 0;
-            this.radioButton1.TabStop = true;
-            this.radioButton1.Text = "MasterCard";
-            this.radioButton1.UseVisualStyleBackColor = true;
+            this.rbMasterCard.AutoSize = true;
+            this.rbMasterCard.Location = new System.Drawing.Point(6, 21);
+            this.rbMasterCard.Name = "rbMasterCard";
+            this.rbMasterCard.Size = new System.Drawing.Size(102, 21);
+            this.rbMasterCard.TabIndex = 0;
+            this.rbMasterCard.TabStop = true;
+            this.rbMasterCard.Text = "MasterCard";
+            this.rbMasterCard.UseVisualStyleBackColor = true;
+            this.rbMasterCard.CheckedChanged += new System.EventHandler(this.rbMasterCard_CheckedChanged);
             // 
             // groupBox3
             // 
-            this.groupBox3.Controls.Add(this.comboBox1);
+            this.groupBox3.Controls.Add(this.cbAltipus);
             this.groupBox3.Location = new System.Drawing.Point(12, 73);
             this.groupBox3.Name = "groupBox3";
             this.groupBox3.Size = new System.Drawing.Size(217, 57);
@@ -168,18 +169,18 @@ namespace KartyaKezelo
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "Bankkártya altípusa";
             // 
-            // comboBox1
+            // cbAltipus
             // 
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(6, 21);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(204, 24);
-            this.comboBox1.TabIndex = 0;
+            this.cbAltipus.FormattingEnabled = true;
+            this.cbAltipus.Location = new System.Drawing.Point(6, 21);
+            this.cbAltipus.Name = "cbAltipus";
+            this.cbAltipus.Size = new System.Drawing.Size(204, 24);
+            this.cbAltipus.TabIndex = 0;
             // 
             // groupBox4
             // 
-            this.groupBox4.Controls.Add(this.button1);
-            this.groupBox4.Controls.Add(this.listBox1);
+            this.groupBox4.Controls.Add(this.btnUjTulajdonos);
+            this.groupBox4.Controls.Add(this.lbTulajdonosok);
             this.groupBox4.Location = new System.Drawing.Point(12, 137);
             this.groupBox4.Name = "groupBox4";
             this.groupBox4.Size = new System.Drawing.Size(217, 201);
@@ -187,53 +188,54 @@ namespace KartyaKezelo
             this.groupBox4.TabStop = false;
             this.groupBox4.Text = "Tulajdonos kiválasztása";
             // 
-            // button1
+            // btnUjTulajdonos
             // 
-            this.button1.Location = new System.Drawing.Point(6, 161);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(204, 32);
-            this.button1.TabIndex = 1;
-            this.button1.Text = "Új tulajdonos létrehozása";
-            this.button1.UseVisualStyleBackColor = true;
+            this.btnUjTulajdonos.Location = new System.Drawing.Point(6, 161);
+            this.btnUjTulajdonos.Name = "btnUjTulajdonos";
+            this.btnUjTulajdonos.Size = new System.Drawing.Size(204, 32);
+            this.btnUjTulajdonos.TabIndex = 1;
+            this.btnUjTulajdonos.Text = "Új tulajdonos létrehozása";
+            this.btnUjTulajdonos.UseVisualStyleBackColor = true;
             // 
-            // listBox1
+            // lbTulajdonosok
             // 
-            this.listBox1.FormattingEnabled = true;
-            this.listBox1.ItemHeight = 16;
-            this.listBox1.Location = new System.Drawing.Point(7, 22);
-            this.listBox1.Name = "listBox1";
-            this.listBox1.Size = new System.Drawing.Size(204, 132);
-            this.listBox1.TabIndex = 0;
+            this.lbTulajdonosok.FormattingEnabled = true;
+            this.lbTulajdonosok.ItemHeight = 16;
+            this.lbTulajdonosok.Location = new System.Drawing.Point(7, 22);
+            this.lbTulajdonosok.Name = "lbTulajdonosok";
+            this.lbTulajdonosok.Size = new System.Drawing.Size(204, 132);
+            this.lbTulajdonosok.TabIndex = 0;
+            this.lbTulajdonosok.SelectedIndexChanged += new System.EventHandler(this.lbTulajdonosok_SelectedIndexChanged);
             // 
-            // button2
+            // btnMentesKilepes
             // 
-            this.button2.Enabled = false;
-            this.button2.ForeColor = System.Drawing.Color.Green;
-            this.button2.Location = new System.Drawing.Point(12, 345);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(292, 32);
-            this.button2.TabIndex = 4;
-            this.button2.Text = "Új kártya elmentése és kilépés";
-            this.button2.UseVisualStyleBackColor = true;
+            this.btnMentesKilepes.Enabled = false;
+            this.btnMentesKilepes.ForeColor = System.Drawing.Color.Green;
+            this.btnMentesKilepes.Location = new System.Drawing.Point(12, 345);
+            this.btnMentesKilepes.Name = "btnMentesKilepes";
+            this.btnMentesKilepes.Size = new System.Drawing.Size(292, 32);
+            this.btnMentesKilepes.TabIndex = 4;
+            this.btnMentesKilepes.Text = "Új kártya elmentése és kilépés";
+            this.btnMentesKilepes.UseVisualStyleBackColor = true;
             // 
-            // button3
+            // btnKilepes
             // 
-            this.button3.ForeColor = System.Drawing.Color.Red;
-            this.button3.Location = new System.Drawing.Point(337, 345);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(292, 32);
-            this.button3.TabIndex = 5;
-            this.button3.Text = "Kilépés mentés nélkül";
-            this.button3.UseVisualStyleBackColor = true;
-            this.button3.Click += new System.EventHandler(this.button3_Click);
+            this.btnKilepes.ForeColor = System.Drawing.Color.Red;
+            this.btnKilepes.Location = new System.Drawing.Point(337, 345);
+            this.btnKilepes.Name = "btnKilepes";
+            this.btnKilepes.Size = new System.Drawing.Size(292, 32);
+            this.btnKilepes.TabIndex = 5;
+            this.btnKilepes.Text = "Kilépés mentés nélkül";
+            this.btnKilepes.UseVisualStyleBackColor = true;
+            this.btnKilepes.Click += new System.EventHandler(this.button3_Click);
             // 
             // groupBox5
             // 
-            this.groupBox5.Controls.Add(this.textBox5);
+            this.groupBox5.Controls.Add(this.tbTulajdonosTel);
             this.groupBox5.Controls.Add(this.label5);
-            this.groupBox5.Controls.Add(this.textBox3);
+            this.groupBox5.Controls.Add(this.tbTulajdonosEmail);
             this.groupBox5.Controls.Add(this.label4);
-            this.groupBox5.Controls.Add(this.textBox4);
+            this.groupBox5.Controls.Add(this.tbTulajdonosNeve);
             this.groupBox5.Controls.Add(this.label6);
             this.groupBox5.Location = new System.Drawing.Point(235, 193);
             this.groupBox5.Name = "groupBox5";
@@ -242,14 +244,14 @@ namespace KartyaKezelo
             this.groupBox5.TabStop = false;
             this.groupBox5.Text = "Tulajdonos adatai";
             // 
-            // textBox5
+            // tbTulajdonosTel
             // 
-            this.textBox5.Location = new System.Drawing.Point(198, 105);
-            this.textBox5.Name = "textBox5";
-            this.textBox5.ReadOnly = true;
-            this.textBox5.Size = new System.Drawing.Size(190, 22);
-            this.textBox5.TabIndex = 5;
-            this.textBox5.Text = "(nincs kiválasztva tulajdonos)";
+            this.tbTulajdonosTel.Location = new System.Drawing.Point(198, 105);
+            this.tbTulajdonosTel.Name = "tbTulajdonosTel";
+            this.tbTulajdonosTel.ReadOnly = true;
+            this.tbTulajdonosTel.Size = new System.Drawing.Size(190, 22);
+            this.tbTulajdonosTel.TabIndex = 5;
+            this.tbTulajdonosTel.Text = "(nincs kiválasztva tulajdonos)";
             // 
             // label5
             // 
@@ -260,14 +262,14 @@ namespace KartyaKezelo
             this.label5.TabIndex = 4;
             this.label5.Text = "Telefonszám";
             // 
-            // textBox3
+            // tbTulajdonosEmail
             // 
-            this.textBox3.Location = new System.Drawing.Point(6, 105);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.ReadOnly = true;
-            this.textBox3.Size = new System.Drawing.Size(190, 22);
-            this.textBox3.TabIndex = 3;
-            this.textBox3.Text = "(nincs kiválasztva tulajdonos)";
+            this.tbTulajdonosEmail.Location = new System.Drawing.Point(6, 105);
+            this.tbTulajdonosEmail.Name = "tbTulajdonosEmail";
+            this.tbTulajdonosEmail.ReadOnly = true;
+            this.tbTulajdonosEmail.Size = new System.Drawing.Size(190, 22);
+            this.tbTulajdonosEmail.TabIndex = 3;
+            this.tbTulajdonosEmail.Text = "(nincs kiválasztva tulajdonos)";
             // 
             // label4
             // 
@@ -278,14 +280,14 @@ namespace KartyaKezelo
             this.label4.TabIndex = 2;
             this.label4.Text = "E-mail cím";
             // 
-            // textBox4
+            // tbTulajdonosNeve
             // 
-            this.textBox4.Location = new System.Drawing.Point(7, 43);
-            this.textBox4.Name = "textBox4";
-            this.textBox4.ReadOnly = true;
-            this.textBox4.Size = new System.Drawing.Size(381, 22);
-            this.textBox4.TabIndex = 1;
-            this.textBox4.Text = "(nincs kiválasztva tulajdonos)";
+            this.tbTulajdonosNeve.Location = new System.Drawing.Point(7, 43);
+            this.tbTulajdonosNeve.Name = "tbTulajdonosNeve";
+            this.tbTulajdonosNeve.ReadOnly = true;
+            this.tbTulajdonosNeve.Size = new System.Drawing.Size(381, 22);
+            this.tbTulajdonosNeve.TabIndex = 1;
+            this.tbTulajdonosNeve.Text = "(nincs kiválasztva tulajdonos)";
             // 
             // label6
             // 
@@ -302,8 +304,8 @@ namespace KartyaKezelo
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(641, 388);
             this.Controls.Add(this.groupBox5);
-            this.Controls.Add(this.button3);
-            this.Controls.Add(this.button2);
+            this.Controls.Add(this.btnKilepes);
+            this.Controls.Add(this.btnMentesKilepes);
             this.Controls.Add(this.groupBox4);
             this.Controls.Add(this.groupBox3);
             this.Controls.Add(this.groupBox2);
@@ -328,28 +330,28 @@ namespace KartyaKezelo
         #endregion
 
         private System.Windows.Forms.GroupBox groupBox1;
-        private System.Windows.Forms.TextBox textBox2;
+        private System.Windows.Forms.TextBox tbCvc;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.DateTimePicker dateTimePicker1;
+        private System.Windows.Forms.DateTimePicker dtpLejarat;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox tbBankkartyaSzam;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.GroupBox groupBox2;
-        private System.Windows.Forms.RadioButton radioButton2;
-        private System.Windows.Forms.RadioButton radioButton1;
+        private System.Windows.Forms.RadioButton rbVisa;
+        private System.Windows.Forms.RadioButton rbMasterCard;
         private System.Windows.Forms.GroupBox groupBox3;
-        private System.Windows.Forms.ComboBox comboBox1;
+        private System.Windows.Forms.ComboBox cbAltipus;
         private System.Windows.Forms.GroupBox groupBox4;
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.ListBox listBox1;
-        private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.Button button3;
+        private System.Windows.Forms.Button btnUjTulajdonos;
+        private System.Windows.Forms.ListBox lbTulajdonosok;
+        private System.Windows.Forms.Button btnMentesKilepes;
+        private System.Windows.Forms.Button btnKilepes;
         private System.Windows.Forms.GroupBox groupBox5;
-        private System.Windows.Forms.TextBox textBox5;
+        private System.Windows.Forms.TextBox tbTulajdonosTel;
         private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.TextBox textBox3;
+        private System.Windows.Forms.TextBox tbTulajdonosEmail;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.TextBox textBox4;
+        private System.Windows.Forms.TextBox tbTulajdonosNeve;
         private System.Windows.Forms.Label label6;
     }
 }

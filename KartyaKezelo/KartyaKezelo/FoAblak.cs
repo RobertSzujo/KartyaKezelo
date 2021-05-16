@@ -54,12 +54,21 @@ namespace KartyaKezelo
             StreamReader kartyaStreamReader = new StreamReader("Kartyak.txt");
             while (!kartyaStreamReader.EndOfStream)
             {
-                string[] sor = kartyaStreamReader.ReadLine().Split(',');
                 Kartya kartya = new Kartya();
-                kartya.Tipus = (Tipus)Enum.Parse(typeof(Tipus), sor[1]);
-                kartya.Lejarat = sor[2];
-                kartya.Letiltva = bool.Parse(sor[3]);
-                kartya.Tulajdonos = tulajdonosok[int.Parse(sor[4])];
+                string[] sor = kartyaStreamReader.ReadLine().Split(',');
+                if (sor[1] == "MasterCard")
+                {
+                    kartya = new MasterCardKartya();
+                }
+                else if (sor[1] == "VISA")
+                {
+                    kartya = new VisaKartya();
+                }
+
+                kartya.Lejarat = sor[3];
+                kartya.Cvc = sor[4];
+                kartya.Letiltva = bool.Parse(sor[5]);
+                kartya.Tulajdonos = tulajdonosok[int.Parse(sor[6])];
 
                 kartyak.Add(sor[0], kartya);
             }
@@ -106,7 +115,7 @@ namespace KartyaKezelo
 
         private void button4_Click(object sender, EventArgs e)
         {
-            KartyaLetrehozas kartyaLetrehozas = new KartyaLetrehozas();
+            KartyaLetrehozas kartyaLetrehozas = new KartyaLetrehozas(tulajdonosok);
             kartyaLetrehozas.ShowDialog();
         }
 
@@ -134,13 +143,17 @@ namespace KartyaKezelo
 
         private void lbCards_SelectedIndexChanged(object sender, EventArgs e)
         {
-            tbKartyaszam.Text = lbCards.SelectedItem.ToString();
-            tbKartyatulajdonos.Text = kartyak[lbCards.SelectedItem.ToString()].Tulajdonos.Nev;
+            if (lbCards.SelectedItem != null)
+            {
+                tbKartyaszam.Text = lbCards.SelectedItem.ToString();
+                tbKartyatulajdonos.Text = kartyak[lbCards.SelectedItem.ToString()].Tulajdonos.Nev;
 
-            btnShowCardDetails.Enabled = true;
-            //Ezeket még el kell készíteni!
-            btnDisableCard.Enabled = false;
-            btnRemoveCard.Enabled = false;
+                btnShowCardDetails.Enabled = true;
+                //Ezeket még el kell készíteni!
+                btnDisableCard.Enabled = false;
+                btnRemoveCard.Enabled = false;
+            }
+            
         }
 
         private void btnExit_Click(object sender, EventArgs e)

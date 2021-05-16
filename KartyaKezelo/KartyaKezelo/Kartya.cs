@@ -6,28 +6,26 @@ using System.Threading.Tasks;
 
 namespace KartyaKezelo
 {
-    public enum Tipus { MasterCard, VISA };
     public class Kartya
     {
-        String lejarat;
+        String lejarat, cvc;
         bool letiltva;
         Tulajdonos tulajdonos;
-        Tipus tipus;
 
-        public Kartya(string lejarat, bool letiltva, Tulajdonos tulajdonos, Tipus tipus)
+        public Kartya(string lejarat, bool letiltva, Tulajdonos tulajdonos)
         {
             this.Lejarat = lejarat;
+            this.Cvc = cvc;
             this.Letiltva = letiltva;
             this.Tulajdonos = tulajdonos;
-            this.Tipus = tipus;
         }
 
         public Kartya()
         { }
 
         public string Lejarat { get => lejarat; set => lejarat = value; }
+        public String Cvc { get => cvc; set => cvc = value; }
         public bool Letiltva { get => letiltva; set => letiltva = value; }
-        public Tipus Tipus { get => tipus; set => tipus = value; }
         internal Tulajdonos Tulajdonos { get => tulajdonos; set => tulajdonos = value; }
     }
 
