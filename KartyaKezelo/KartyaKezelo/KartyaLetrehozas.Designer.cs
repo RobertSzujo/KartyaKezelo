@@ -52,6 +52,7 @@ namespace KartyaKezelo
             this.tbTulajdonosNeve = new System.Windows.Forms.TextBox();
             this.label6 = new System.Windows.Forms.Label();
             this.btnMentesListaba = new System.Windows.Forms.Button();
+            this.lbMentesreVar = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.groupBox4.SuspendLayout();
@@ -137,7 +138,7 @@ namespace KartyaKezelo
             // rbVisa
             // 
             this.rbVisa.AutoSize = true;
-            this.rbVisa.Location = new System.Drawing.Point(152, 21);
+            this.rbVisa.Location = new System.Drawing.Point(140, 21);
             this.rbVisa.Name = "rbVisa";
             this.rbVisa.Size = new System.Drawing.Size(59, 21);
             this.rbVisa.TabIndex = 1;
@@ -284,7 +285,7 @@ namespace KartyaKezelo
             // 
             this.btnMentesListaba.Enabled = false;
             this.btnMentesListaba.ForeColor = System.Drawing.Color.Blue;
-            this.btnMentesListaba.Location = new System.Drawing.Point(18, 293);
+            this.btnMentesListaba.Location = new System.Drawing.Point(19, 278);
             this.btnMentesListaba.Name = "btnMentesListaba";
             this.btnMentesListaba.Size = new System.Drawing.Size(204, 32);
             this.btnMentesListaba.TabIndex = 2;
@@ -292,11 +293,21 @@ namespace KartyaKezelo
             this.btnMentesListaba.UseVisualStyleBackColor = true;
             this.btnMentesListaba.Click += new System.EventHandler(this.btnMentesListaba_Click);
             // 
+            // lbMentesreVar
+            // 
+            this.lbMentesreVar.AutoSize = true;
+            this.lbMentesreVar.Location = new System.Drawing.Point(16, 321);
+            this.lbMentesreVar.Name = "lbMentesreVar";
+            this.lbMentesreVar.Size = new System.Drawing.Size(170, 17);
+            this.lbMentesreVar.TabIndex = 9;
+            this.lbMentesreVar.Text = "Mentésre vár: 0 db kártya";
+            // 
             // KartyaLetrehozas
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(641, 388);
+            this.Controls.Add(this.lbMentesreVar);
             this.Controls.Add(this.btnMentesListaba);
             this.Controls.Add(this.groupBox5);
             this.Controls.Add(this.btnKilepes);
@@ -317,6 +328,7 @@ namespace KartyaKezelo
             this.groupBox5.ResumeLayout(false);
             this.groupBox5.PerformLayout();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -345,5 +357,6 @@ namespace KartyaKezelo
         private System.Windows.Forms.TextBox tbTulajdonosNeve;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Button btnMentesListaba;
+        private System.Windows.Forms.Label lbMentesreVar;
     }
 }

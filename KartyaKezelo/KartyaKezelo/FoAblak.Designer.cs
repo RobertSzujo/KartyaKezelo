@@ -32,6 +32,7 @@ namespace KartyaKezelo
             this.lbCards = new System.Windows.Forms.ListBox();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.btnKartyaAdatok = new System.Windows.Forms.Button();
             this.btnKartyaEsTulajdonosAdatok = new System.Windows.Forms.Button();
             this.btnRemoveCard = new System.Windows.Forms.Button();
             this.btnDisableCard = new System.Windows.Forms.Button();
@@ -42,7 +43,6 @@ namespace KartyaKezelo
             this.tbKartyaszam = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.tbKartyatulajdonos = new System.Windows.Forms.TextBox();
-            this.btnKartyaAdatok = new System.Windows.Forms.Button();
             this.groupBox2.SuspendLayout();
             this.groupBox3.SuspendLayout();
             this.SuspendLayout();
@@ -80,6 +80,17 @@ namespace KartyaKezelo
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Műveletek a kiválasztott kártyával";
             this.groupBox2.Enter += new System.EventHandler(this.groupBox2_Enter);
+            // 
+            // btnKartyaAdatok
+            // 
+            this.btnKartyaAdatok.Enabled = false;
+            this.btnKartyaAdatok.Location = new System.Drawing.Point(6, 24);
+            this.btnKartyaAdatok.Name = "btnKartyaAdatok";
+            this.btnKartyaAdatok.Size = new System.Drawing.Size(478, 32);
+            this.btnKartyaAdatok.TabIndex = 4;
+            this.btnKartyaAdatok.Text = "Kártya adatainak lekérdezése";
+            this.btnKartyaAdatok.UseVisualStyleBackColor = true;
+            this.btnKartyaAdatok.Click += new System.EventHandler(this.btnKartyaAdatok_Click);
             // 
             // btnKartyaEsTulajdonosAdatok
             // 
@@ -170,9 +181,9 @@ namespace KartyaKezelo
             this.label2.AutoSize = true;
             this.label2.Location = new System.Drawing.Point(300, 43);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(125, 17);
+            this.label2.Size = new System.Drawing.Size(160, 17);
             this.label2.TabIndex = 9;
-            this.label2.Text = "Bankkártya típusa:";
+            this.label2.Text = "Bankkártya tulajdonosa:";
             this.label2.Click += new System.EventHandler(this.label2_Click);
             // 
             // tbKartyatulajdonos
@@ -183,17 +194,6 @@ namespace KartyaKezelo
             this.tbKartyatulajdonos.Size = new System.Drawing.Size(323, 22);
             this.tbKartyatulajdonos.TabIndex = 10;
             this.tbKartyatulajdonos.Text = "(nincs kiválasztva bankkártya)";
-            // 
-            // btnKartyaAdatok
-            // 
-            this.btnKartyaAdatok.Enabled = false;
-            this.btnKartyaAdatok.Location = new System.Drawing.Point(6, 24);
-            this.btnKartyaAdatok.Name = "btnKartyaAdatok";
-            this.btnKartyaAdatok.Size = new System.Drawing.Size(478, 32);
-            this.btnKartyaAdatok.TabIndex = 4;
-            this.btnKartyaAdatok.Text = "Kártya adatainak lekérdezése";
-            this.btnKartyaAdatok.UseVisualStyleBackColor = true;
-            this.btnKartyaAdatok.Click += new System.EventHandler(this.btnKartyaAdatok_Click);
             // 
             // FoAblak
             // 
@@ -209,6 +209,8 @@ namespace KartyaKezelo
             this.Controls.Add(this.lbCards);
             this.Controls.Add(this.groupBox1);
             this.MaximizeBox = false;
+            this.MaximumSize = new System.Drawing.Size(818, 409);
+            this.MinimumSize = new System.Drawing.Size(818, 409);
             this.Name = "FoAblak";
             this.Text = "Bankkártya kezelő alkalamzás";
             this.groupBox2.ResumeLayout(false);

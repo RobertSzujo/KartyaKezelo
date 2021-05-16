@@ -122,7 +122,7 @@ namespace KartyaKezelo
             this.btnKilepes.Name = "btnKilepes";
             this.btnKilepes.Size = new System.Drawing.Size(312, 32);
             this.btnKilepes.TabIndex = 2;
-            this.btnKilepes.Text = "Mentés kilépés nélkül";
+            this.btnKilepes.Text = "Kilépés mentés nélkül";
             this.btnKilepes.UseVisualStyleBackColor = true;
             this.btnKilepes.Click += new System.EventHandler(this.button2_Click);
             // 
@@ -135,6 +135,8 @@ namespace KartyaKezelo
             this.Controls.Add(this.btnMentesKilepes);
             this.Controls.Add(this.groupBox1);
             this.MaximizeBox = false;
+            this.MaximumSize = new System.Drawing.Size(356, 325);
+            this.MinimumSize = new System.Drawing.Size(356, 325);
             this.Name = "TulajdonosLetrehozas";
             this.Text = "Új tulajdonos létrehozása";
             this.groupBox1.ResumeLayout(false);

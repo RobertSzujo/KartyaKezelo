@@ -113,6 +113,8 @@ namespace KartyaKezelo
             tbBankkartyaSzam.Text = "";
             dtpLejarat.Text = "";
             tbCvc.Text = "";
+
+            lbMentesreVar.Text = "Mentésre vár: "+ ujKartyak.Count +" db kártya";
         }
     }
 }
