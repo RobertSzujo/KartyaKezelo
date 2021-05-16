@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -14,6 +15,8 @@ namespace KartyaKezelo
     {
 
         private Dictionary<int, Tulajdonos> tulajdonosLista;
+        int tulajdonosId;
+        Kartya kartya;
 
         public KartyaLetrehozas(Dictionary<int, Tulajdonos> tulajdonosok)
         {
@@ -33,7 +36,7 @@ namespace KartyaKezelo
 
         private void rbMasterCard_CheckedChanged(object sender, EventArgs e)
         {
-
+            btnMentesKilepes.Enabled = true;
         }
 
         private void lbTulajdonosok_SelectedIndexChanged(object sender, EventArgs e)
@@ -41,13 +44,51 @@ namespace KartyaKezelo
             if (lbTulajdonosok.SelectedItem != null)
             {
                 String[] tulajdonosSor = lbTulajdonosok.SelectedItem.ToString().Split(':');
-                int tulajdonosId = Convert.ToInt32(tulajdonosSor[0]);
+                tulajdonosId = Convert.ToInt32(tulajdonosSor[0]);
                 Tulajdonos tulajdonos = tulajdonosLista[tulajdonosId];
 
                 tbTulajdonosNeve.Text = tulajdonos.Nev;
                 tbTulajdonosEmail.Text = tulajdonos.Email;
                 tbTulajdonosTel.Text = tulajdonos.Telefonszam;
             }
+        }
+
+        private void rbVisa_CheckedChanged(object sender, EventArgs e)
+        {
+            btnMentesKilepes.Enabled = true;
+        }
+
+        private void btnUjTulajdonos_Click(object sender, EventArgs e)
+        {
+            TulajdonosLetrehozas tulajdonosLetrehozas = new TulajdonosLetrehozas();
+            tulajdonosLetrehozas.ShowDialog();
+        }
+
+        private void btnMentesKilepes_Click(object sender, EventArgs e)
+        {
+            //TODO: input checkek elkészítése
+
+            String kartyatipus = "";
+            if (rbMasterCard.Checked)
+            {
+                kartyatipus = "MasterCard";
+                kartya = new MasterCardKartya();
+            }
+            else if (rbVisa.Checked)
+            {
+                kartyatipus = "VISA";
+                kartya = new VisaKartya();
+            }
+
+            kartya.Lejarat = dtpLejarat.Text;
+            kartya.Cvc = tbCvc.Text;
+            kartya.Letiltva = false;
+
+            StreamWriter kartyaStreamWriter = new StreamWriter("Kartyak.txt", true);
+            kartyaStreamWriter.WriteLine(tbBankkartyaSzam.Text + "," + kartyatipus + "," + "altípus," + kartya.Lejarat + "," + kartya.Cvc + "," + kartya.Letiltva.ToString() + "," + tulajdonosId);
+            kartyaStreamWriter.Close();
+
+            this.Close();
         }
     }
 }

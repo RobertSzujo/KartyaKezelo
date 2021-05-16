@@ -27,6 +27,7 @@ namespace KartyaKezelo
         public String Cvc { get => cvc; set => cvc = value; }
         public bool Letiltva { get => letiltva; set => letiltva = value; }
         internal Tulajdonos Tulajdonos { get => tulajdonos; set => tulajdonos = value; }
+
     }
 
 

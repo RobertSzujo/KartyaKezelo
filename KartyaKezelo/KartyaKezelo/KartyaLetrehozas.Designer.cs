@@ -146,6 +146,7 @@ namespace KartyaKezelo
             this.rbVisa.TabStop = true;
             this.rbVisa.Text = "VISA";
             this.rbVisa.UseVisualStyleBackColor = true;
+            this.rbVisa.CheckedChanged += new System.EventHandler(this.rbVisa_CheckedChanged);
             // 
             // rbMasterCard
             // 
@@ -196,6 +197,7 @@ namespace KartyaKezelo
             this.btnUjTulajdonos.TabIndex = 1;
             this.btnUjTulajdonos.Text = "Új tulajdonos létrehozása";
             this.btnUjTulajdonos.UseVisualStyleBackColor = true;
+            this.btnUjTulajdonos.Click += new System.EventHandler(this.btnUjTulajdonos_Click);
             // 
             // lbTulajdonosok
             // 
@@ -217,6 +219,7 @@ namespace KartyaKezelo
             this.btnMentesKilepes.TabIndex = 4;
             this.btnMentesKilepes.Text = "Új kártya elmentése és kilépés";
             this.btnMentesKilepes.UseVisualStyleBackColor = true;
+            this.btnMentesKilepes.Click += new System.EventHandler(this.btnMentesKilepes_Click);
             // 
             // btnKilepes
             // 

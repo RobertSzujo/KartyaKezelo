@@ -14,15 +14,24 @@ namespace KartyaKezelo
 {
     public partial class FoAblak : Form
     { 
-        private Dictionary<int, Tulajdonos> tulajdonosok;
-        private Dictionary<String, Kartya> kartyak;
+        Dictionary<int, Tulajdonos> tulajdonosok;
+        Dictionary<String, Kartya> kartyak;
 
         public FoAblak()
         {
             InitializeComponent();
+            AdatokBetoltese();
+        }
+
+        private void AdatokBetoltese()
+        {
             tulajdonosok = TulajdonosokBetoltese();
             kartyak = KartyakBetoltese();
-            
+            KartyaListaFeltoltes();
+        }
+
+        public void KartyaListaFeltoltes()
+        {
             foreach (String kartyaszam in kartyak.Keys)
             {
                 lbCards.Items.Add(kartyaszam);
@@ -117,6 +126,17 @@ namespace KartyaKezelo
         {
             KartyaLetrehozas kartyaLetrehozas = new KartyaLetrehozas(tulajdonosok);
             kartyaLetrehozas.ShowDialog();
+            AdatokUritese();
+            AdatokBetoltese();
+
+        }
+
+        private void AdatokUritese()
+        {
+            tulajdonosok.Clear();
+            kartyak.Clear();
+            lbCards.Items.Clear();
+
         }
 
         private void button5_Click(object sender, EventArgs e)
