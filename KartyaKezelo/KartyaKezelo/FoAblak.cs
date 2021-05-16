@@ -13,9 +13,10 @@ using System.Windows.Forms;
 namespace KartyaKezelo
 {
     public partial class FoAblak : Form
-    { 
-        Dictionary<int, Tulajdonos> tulajdonosok;
-        Dictionary<String, Kartya> kartyak;
+    {
+        List<Tulajdonos> tulajdonosok;
+        List<Kartya> kartyak;
+        Kartya kivalasztottKartya;
 
         public FoAblak()
         {
@@ -25,46 +26,38 @@ namespace KartyaKezelo
 
         private void AdatokBetoltese()
         {
-            tulajdonosok = TulajdonosokBetoltese();
-            kartyak = KartyakBetoltese();
+            TulajdonosokBetoltese();
+            KartyakBetoltese();
             KartyaListaFeltoltes();
         }
 
-        public void KartyaListaFeltoltes()
+        public void TulajdonosokBetoltese()
         {
-            foreach (String kartyaszam in kartyak.Keys)
-            {
-                lbCards.Items.Add(kartyaszam);
-            }
-        }
-
-        private Dictionary<int, Tulajdonos> TulajdonosokBetoltese()
-        {
-            Dictionary <int, Tulajdonos> tulajdonosok = new Dictionary<int, Tulajdonos>();
+            tulajdonosok = new List<Tulajdonos>();
             StreamReader tulajdonosStreamReader = new StreamReader("Tulajdonosok.txt");
             while (!tulajdonosStreamReader.EndOfStream)
             {
                 string[] sor = tulajdonosStreamReader.ReadLine().Split(',');
                 Tulajdonos tulajdonos = new Tulajdonos();
+                tulajdonos.Id = Convert.ToInt32(sor[0]);
                 tulajdonos.Nev = sor[1];
                 tulajdonos.Email = sor[2];
                 tulajdonos.Telefonszam = sor[3];
 
-                tulajdonosok.Add(int.Parse(sor[0]), tulajdonos);
+                tulajdonosok.Add(tulajdonos);
             }
             tulajdonosStreamReader.Close();
-
-            return tulajdonosok;
         }
 
-        private Dictionary<String, Kartya> KartyakBetoltese()
+        public void KartyakBetoltese()
         {
-            Dictionary <String, Kartya> kartyak = new Dictionary<String, Kartya>();
+            kartyak = new List<Kartya>();
             StreamReader kartyaStreamReader = new StreamReader("Kartyak.txt");
             while (!kartyaStreamReader.EndOfStream)
             {
                 Kartya kartya = new Kartya();
                 string[] sor = kartyaStreamReader.ReadLine().Split(',');
+
                 if (sor[1] == "MasterCard")
                 {
                     kartya = new MasterCardKartya();
@@ -74,17 +67,25 @@ namespace KartyaKezelo
                     kartya = new VisaKartya();
                 }
 
+                //TODO: altípus hozzáadása (vagy kitörlése teljesen)
+
+                kartya.Kartyaszam = sor[0];
                 kartya.Lejarat = sor[3];
                 kartya.Cvc = sor[4];
                 kartya.Letiltva = bool.Parse(sor[5]);
-                kartya.Tulajdonos = tulajdonosok[int.Parse(sor[6])];
+                kartya.Tulajdonos = tulajdonosok.Find(tulajdonos => tulajdonos.Id == int.Parse(sor[6]));
 
-                kartyak.Add(sor[0], kartya);
+                kartyak.Add(kartya);
             }
             kartyaStreamReader.Close();
+        }
 
-            return kartyak;
-
+        public void KartyaListaFeltoltes()
+        {
+            foreach (Kartya kartya in kartyak)
+            {
+                lbCards.Items.Add(kartya.Kartyaszam);
+            }
         }
 
         private void label1_Click(object sender, EventArgs e)
@@ -152,7 +153,7 @@ namespace KartyaKezelo
         private void button1_Click_1(object sender, EventArgs e)
         {
             String kartyaszam = lbCards.SelectedItem.ToString();
-            KartyaLekerdezes kartyaLekerdezes = new KartyaLekerdezes(kartyaszam, kartyak[kartyaszam]);
+            KartyaLekerdezes kartyaLekerdezes = new KartyaLekerdezes(kivalasztottKartya);
             kartyaLekerdezes.ShowDialog();
         }
 
@@ -165,8 +166,10 @@ namespace KartyaKezelo
         {
             if (lbCards.SelectedItem != null)
             {
-                tbKartyaszam.Text = lbCards.SelectedItem.ToString();
-                tbKartyatulajdonos.Text = kartyak[lbCards.SelectedItem.ToString()].Tulajdonos.Nev;
+                kivalasztottKartya = kartyak.Find(kartya => kartya.Kartyaszam == lbCards.SelectedItem.ToString());
+
+                tbKartyaszam.Text = kivalasztottKartya.Kartyaszam;
+                tbKartyatulajdonos.Text = kivalasztottKartya.Tulajdonos.Nev;
 
                 btnShowCardDetails.Enabled = true;
                 //Ezeket még el kell készíteni!

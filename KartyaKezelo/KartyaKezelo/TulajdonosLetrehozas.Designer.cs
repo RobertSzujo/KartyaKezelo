@@ -30,24 +30,24 @@ namespace KartyaKezelo
         private void InitializeComponent()
         {
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.textBox7 = new System.Windows.Forms.TextBox();
-            this.textBox5 = new System.Windows.Forms.TextBox();
+            this.tbTulajdonosTel = new System.Windows.Forms.TextBox();
+            this.tbTulajdonosNeve = new System.Windows.Forms.TextBox();
             this.label7 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
-            this.textBox6 = new System.Windows.Forms.TextBox();
+            this.tbTulajdonosEmail = new System.Windows.Forms.TextBox();
             this.label6 = new System.Windows.Forms.Label();
-            this.button1 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
+            this.btnMentesKilepes = new System.Windows.Forms.Button();
+            this.btnKilepes = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
             // groupBox1
             // 
-            this.groupBox1.Controls.Add(this.textBox7);
-            this.groupBox1.Controls.Add(this.textBox5);
+            this.groupBox1.Controls.Add(this.tbTulajdonosTel);
+            this.groupBox1.Controls.Add(this.tbTulajdonosNeve);
             this.groupBox1.Controls.Add(this.label7);
             this.groupBox1.Controls.Add(this.label5);
-            this.groupBox1.Controls.Add(this.textBox6);
+            this.groupBox1.Controls.Add(this.tbTulajdonosEmail);
             this.groupBox1.Controls.Add(this.label6);
             this.groupBox1.Location = new System.Drawing.Point(13, 13);
             this.groupBox1.Name = "groupBox1";
@@ -56,19 +56,19 @@ namespace KartyaKezelo
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Tulajdonos adatai";
             // 
-            // textBox7
+            // tbTulajdonosTel
             // 
-            this.textBox7.Location = new System.Drawing.Point(6, 135);
-            this.textBox7.Name = "textBox7";
-            this.textBox7.Size = new System.Drawing.Size(297, 22);
-            this.textBox7.TabIndex = 19;
+            this.tbTulajdonosTel.Location = new System.Drawing.Point(6, 135);
+            this.tbTulajdonosTel.Name = "tbTulajdonosTel";
+            this.tbTulajdonosTel.Size = new System.Drawing.Size(297, 22);
+            this.tbTulajdonosTel.TabIndex = 19;
             // 
-            // textBox5
+            // tbTulajdonosNeve
             // 
-            this.textBox5.Location = new System.Drawing.Point(6, 45);
-            this.textBox5.Name = "textBox5";
-            this.textBox5.Size = new System.Drawing.Size(297, 22);
-            this.textBox5.TabIndex = 15;
+            this.tbTulajdonosNeve.Location = new System.Drawing.Point(6, 45);
+            this.tbTulajdonosNeve.Name = "tbTulajdonosNeve";
+            this.tbTulajdonosNeve.Size = new System.Drawing.Size(297, 22);
+            this.tbTulajdonosNeve.TabIndex = 15;
             // 
             // label7
             // 
@@ -88,12 +88,12 @@ namespace KartyaKezelo
             this.label5.TabIndex = 14;
             this.label5.Text = "Tulajdonos neve:";
             // 
-            // textBox6
+            // tbTulajdonosEmail
             // 
-            this.textBox6.Location = new System.Drawing.Point(6, 90);
-            this.textBox6.Name = "textBox6";
-            this.textBox6.Size = new System.Drawing.Size(297, 22);
-            this.textBox6.TabIndex = 17;
+            this.tbTulajdonosEmail.Location = new System.Drawing.Point(6, 90);
+            this.tbTulajdonosEmail.Name = "tbTulajdonosEmail";
+            this.tbTulajdonosEmail.Size = new System.Drawing.Size(297, 22);
+            this.tbTulajdonosEmail.TabIndex = 17;
             // 
             // label6
             // 
@@ -104,34 +104,35 @@ namespace KartyaKezelo
             this.label6.TabIndex = 16;
             this.label6.Text = "Tulajdonos e-mail címe:";
             // 
-            // button1
+            // btnMentesKilepes
             // 
-            this.button1.ForeColor = System.Drawing.Color.Green;
-            this.button1.Location = new System.Drawing.Point(13, 191);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(312, 32);
-            this.button1.TabIndex = 1;
-            this.button1.Text = "Új tulajdonos mentése és kilépés";
-            this.button1.UseVisualStyleBackColor = true;
+            this.btnMentesKilepes.ForeColor = System.Drawing.Color.Green;
+            this.btnMentesKilepes.Location = new System.Drawing.Point(13, 191);
+            this.btnMentesKilepes.Name = "btnMentesKilepes";
+            this.btnMentesKilepes.Size = new System.Drawing.Size(312, 32);
+            this.btnMentesKilepes.TabIndex = 1;
+            this.btnMentesKilepes.Text = "Új tulajdonos mentése és kilépés";
+            this.btnMentesKilepes.UseVisualStyleBackColor = true;
+            this.btnMentesKilepes.Click += new System.EventHandler(this.btnMentesKilepes_Click);
             // 
-            // button2
+            // btnKilepes
             // 
-            this.button2.ForeColor = System.Drawing.Color.Red;
-            this.button2.Location = new System.Drawing.Point(14, 229);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(312, 32);
-            this.button2.TabIndex = 2;
-            this.button2.Text = "Mentés kilépés nélkül";
-            this.button2.UseVisualStyleBackColor = true;
-            this.button2.Click += new System.EventHandler(this.button2_Click);
+            this.btnKilepes.ForeColor = System.Drawing.Color.Red;
+            this.btnKilepes.Location = new System.Drawing.Point(14, 229);
+            this.btnKilepes.Name = "btnKilepes";
+            this.btnKilepes.Size = new System.Drawing.Size(312, 32);
+            this.btnKilepes.TabIndex = 2;
+            this.btnKilepes.Text = "Mentés kilépés nélkül";
+            this.btnKilepes.UseVisualStyleBackColor = true;
+            this.btnKilepes.Click += new System.EventHandler(this.button2_Click);
             // 
             // TulajdonosLetrehozas
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(338, 276);
-            this.Controls.Add(this.button2);
-            this.Controls.Add(this.button1);
+            this.Controls.Add(this.btnKilepes);
+            this.Controls.Add(this.btnMentesKilepes);
             this.Controls.Add(this.groupBox1);
             this.MaximizeBox = false;
             this.MaximumSize = new System.Drawing.Size(356, 323);
@@ -147,13 +148,13 @@ namespace KartyaKezelo
         #endregion
 
         private System.Windows.Forms.GroupBox groupBox1;
-        private System.Windows.Forms.TextBox textBox7;
-        private System.Windows.Forms.TextBox textBox5;
+        private System.Windows.Forms.TextBox tbTulajdonosTel;
+        private System.Windows.Forms.TextBox tbTulajdonosNeve;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.TextBox textBox6;
+        private System.Windows.Forms.TextBox tbTulajdonosEmail;
         private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Button btnMentesKilepes;
+        private System.Windows.Forms.Button btnKilepes;
     }
 }

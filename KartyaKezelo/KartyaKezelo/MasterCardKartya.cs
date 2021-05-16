@@ -8,6 +8,9 @@ namespace KartyaKezelo
 {
     public class MasterCardKartya:Kartya
     {
-        
+        public override string ToString()
+        {
+            return this.Kartyaszam + "," + "MasterCard" + "," + "altípus," + this.Lejarat + "," + this.Cvc + "," + this.Letiltva.ToString() + "," + this.Tulajdonos.Id;
+        }
     }
 }

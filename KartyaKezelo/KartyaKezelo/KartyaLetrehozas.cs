@@ -14,18 +14,22 @@ namespace KartyaKezelo
     public partial class KartyaLetrehozas : Form
     {
 
-        private Dictionary<int, Tulajdonos> tulajdonosLista;
-        int tulajdonosId;
-        Kartya kartya;
+        List<Tulajdonos> tulajdonosLista;
+        Tulajdonos kivalasztottTulajdonos;
 
-        public KartyaLetrehozas(Dictionary<int, Tulajdonos> tulajdonosok)
+        public KartyaLetrehozas(List<Tulajdonos> tulajdonosok)
         {
             InitializeComponent();
             this.tulajdonosLista = tulajdonosok;
-            
-            foreach (KeyValuePair<int, Tulajdonos> tulajdonos in tulajdonosLista)
+
+            TulajdonosokFeltoltese();
+        }
+
+        private void TulajdonosokFeltoltese()
+        {
+            foreach (Tulajdonos tulajdonos in tulajdonosLista)
             {
-                lbTulajdonosok.Items.Add(tulajdonos.Key + ": " + tulajdonos.Value.Nev);
+                lbTulajdonosok.Items.Add(tulajdonos.Id + ": " + tulajdonos.Nev);
             }
         }
 
@@ -44,12 +48,12 @@ namespace KartyaKezelo
             if (lbTulajdonosok.SelectedItem != null)
             {
                 String[] tulajdonosSor = lbTulajdonosok.SelectedItem.ToString().Split(':');
-                tulajdonosId = Convert.ToInt32(tulajdonosSor[0]);
-                Tulajdonos tulajdonos = tulajdonosLista[tulajdonosId];
+                int tulajdonosId = Convert.ToInt32(tulajdonosSor[0]);
+                kivalasztottTulajdonos = tulajdonosLista.Find(tulajdonos => tulajdonos.Id == tulajdonosId);
 
-                tbTulajdonosNeve.Text = tulajdonos.Nev;
-                tbTulajdonosEmail.Text = tulajdonos.Email;
-                tbTulajdonosTel.Text = tulajdonos.Telefonszam;
+                tbTulajdonosNeve.Text = kivalasztottTulajdonos.Nev;
+                tbTulajdonosEmail.Text = kivalasztottTulajdonos.Email;
+                tbTulajdonosTel.Text = kivalasztottTulajdonos.Telefonszam;
             }
         }
 
@@ -60,32 +64,35 @@ namespace KartyaKezelo
 
         private void btnUjTulajdonos_Click(object sender, EventArgs e)
         {
-            TulajdonosLetrehozas tulajdonosLetrehozas = new TulajdonosLetrehozas();
+            TulajdonosLetrehozas tulajdonosLetrehozas = new TulajdonosLetrehozas(tulajdonosLista);
             tulajdonosLetrehozas.ShowDialog();
+
+            lbTulajdonosok.Items.Clear();
+            TulajdonosokFeltoltese();
         }
 
         private void btnMentesKilepes_Click(object sender, EventArgs e)
         {
             //TODO: input checkek elkészítése
 
-            String kartyatipus = "";
+            Kartya kartya = new Kartya();
             if (rbMasterCard.Checked)
             {
-                kartyatipus = "MasterCard";
                 kartya = new MasterCardKartya();
             }
             else if (rbVisa.Checked)
             {
-                kartyatipus = "VISA";
                 kartya = new VisaKartya();
             }
 
+            kartya.Kartyaszam = tbBankkartyaSzam.Text;
             kartya.Lejarat = dtpLejarat.Text;
             kartya.Cvc = tbCvc.Text;
             kartya.Letiltva = false;
+            kartya.Tulajdonos = kivalasztottTulajdonos;
 
             StreamWriter kartyaStreamWriter = new StreamWriter("Kartyak.txt", true);
-            kartyaStreamWriter.WriteLine(tbBankkartyaSzam.Text + "," + kartyatipus + "," + "altípus," + kartya.Lejarat + "," + kartya.Cvc + "," + kartya.Letiltva.ToString() + "," + tulajdonosId);
+            kartyaStreamWriter.WriteLine(kartya.ToString());
             kartyaStreamWriter.Close();
 
             this.Close();

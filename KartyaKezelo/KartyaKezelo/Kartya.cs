@@ -8,12 +8,13 @@ namespace KartyaKezelo
 {
     public class Kartya
     {
-        String lejarat, cvc;
+        String kartyaszam, lejarat, cvc;
         bool letiltva;
         Tulajdonos tulajdonos;
 
-        public Kartya(string lejarat, bool letiltva, Tulajdonos tulajdonos)
+        public Kartya(string kartyaszam, string lejarat, bool letiltva, Tulajdonos tulajdonos)
         {
+            this.kartyaszam = kartyaszam;
             this.Lejarat = lejarat;
             this.Cvc = cvc;
             this.Letiltva = letiltva;
@@ -23,6 +24,7 @@ namespace KartyaKezelo
         public Kartya()
         { }
 
+        public string Kartyaszam { get => kartyaszam; set => kartyaszam = value; }
         public string Lejarat { get => lejarat; set => lejarat = value; }
         public String Cvc { get => cvc; set => cvc = value; }
         public bool Letiltva { get => letiltva; set => letiltva = value; }

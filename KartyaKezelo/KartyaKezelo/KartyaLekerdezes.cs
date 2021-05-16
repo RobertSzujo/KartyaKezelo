@@ -12,10 +12,10 @@ namespace KartyaKezelo
 {
     public partial class KartyaLekerdezes : Form
     {
-        public KartyaLekerdezes(String kartyaszam, Kartya kartya)
+        public KartyaLekerdezes(Kartya kartya)
         {
             InitializeComponent();
-            tbKartyaszam.Text = kartyaszam;
+            tbKartyaszam.Text = kartya.Kartyaszam;
             tbLejarat.Text = kartya.Lejarat;
             tbLetiltva.Text = Convert.ToString(kartya.Letiltva);
             tbTulajdonosnev.Text = kartya.Tulajdonos.Nev;

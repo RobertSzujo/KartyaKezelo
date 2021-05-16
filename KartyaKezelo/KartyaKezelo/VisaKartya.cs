@@ -8,6 +8,9 @@ namespace KartyaKezelo
 {
     public class VisaKartya:Kartya
     {
-
+        public override string ToString()
+        {
+            return this.Kartyaszam + "," + "VISA" + "," + "altípus," + this.Lejarat + "," + this.Cvc + "," + this.Letiltva.ToString() + "," + this.Tulajdonos.Id;
+        }
     }
 }

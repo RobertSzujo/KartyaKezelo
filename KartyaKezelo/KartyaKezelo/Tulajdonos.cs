@@ -22,5 +22,10 @@
         public string Nev { get => nev; set => nev = value; }
         public string Email { get => email; set => email = value; }
         public string Telefonszam { get => telefonszam; set => telefonszam = value; }
+
+        public override string ToString()
+        {
+            return this.Id + "," + this.Nev + "," + this.Email + "," + this.Telefonszam;
+        }
     }
 }
