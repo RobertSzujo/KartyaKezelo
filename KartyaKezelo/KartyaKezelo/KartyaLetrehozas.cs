@@ -13,16 +13,17 @@ namespace KartyaKezelo
 {
     public partial class KartyaLetrehozas : Form
     {
-
+        List<Kartya> kartyaLista;
         List<Tulajdonos> tulajdonosLista;
         Tulajdonos kivalasztottTulajdonos;
         List<Kartya> ujKartyak = new List<Kartya>();
         bool menteniKell = false;
 
-        public KartyaLetrehozas(List<Tulajdonos> tulajdonosok)
+        public KartyaLetrehozas(List<Tulajdonos> tulajdonosok, List<Kartya> kartyak)
         {
             InitializeComponent();
             this.tulajdonosLista = tulajdonosok;
+            this.kartyaLista = kartyak;
 
             TulajdonosokFeltoltese();
         }
@@ -116,8 +117,6 @@ namespace KartyaKezelo
 
         private void btnMentesListaba_Click(object sender, EventArgs e)
         {
-            //TODO: input checkek elkészítése
-
             Kartya kartya = new Kartya();
             if (rbMasterCard.Checked)
             {
@@ -134,22 +133,41 @@ namespace KartyaKezelo
             kartya.Letiltva = false;
             kartya.Tulajdonos = kivalasztottTulajdonos;
 
-            String kartyaEllenorzesEredmeny = kartya.KartyaEllenorzes();
-            if (kartyaEllenorzesEredmeny.Equals("OK"))
+            bool letezikMarIlyenKartya = false;
+            foreach (Kartya letezoKartya in kartyaLista)
             {
-                ujKartyak.Add(kartya);
-                lbMentesreVar.Text = "Mentésre vár: " + ujKartyak.Count + " db kártya";
+                if (letezoKartya.Kartyaszam.Equals(kartya.Kartyaszam))
+                {
+                    letezikMarIlyenKartya = true;
+                    break;
+                }
+            }
 
-                String cim = "Sikeres mentés";
-                String uzenet = "A kártya sikeresen mentésre került az új kártyák közé!";
+            if (letezikMarIlyenKartya)
+            {
+                String uzenet = "A megadott kártyaszámmal már létezik kártya a listában!";
+                String cim = "Létrehozás hiba";
                 MessageBox.Show(uzenet, cim);
-
-                MezokUritese();
             }
             else
             {
-                String cim = "Létrehozás hiba";
-                MessageBox.Show(kartyaEllenorzesEredmeny, cim);
+                String kartyaEllenorzesEredmeny = kartya.KartyaEllenorzes();
+                if (kartyaEllenorzesEredmeny.Equals("OK"))
+                {
+                    ujKartyak.Add(kartya);
+                    lbMentesreVar.Text = "Mentésre vár: " + ujKartyak.Count + " db kártya";
+
+                    String cim = "Sikeres mentés";
+                    String uzenet = "A kártya sikeresen mentésre került az új kártyák közé!";
+                    MessageBox.Show(uzenet, cim);
+
+                    MezokUritese();
+                }
+                else
+                {
+                    String cim = "Létrehozás hiba";
+                    MessageBox.Show(kartyaEllenorzesEredmeny, cim);
+                }
             }
         }
 

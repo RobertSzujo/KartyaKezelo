@@ -11,3 +11,4 @@ C:\Users\Robi\Documents\KartyaKezelo\KartyaKezelo\KartyaKezelo\obj\Debug\KartyaK
 C:\Users\Robi\Documents\KartyaKezelo\KartyaKezelo\KartyaKezelo\obj\Debug\KartyaKezelo.csproj.CoreCompileInputs.cache
 C:\Users\Robi\Documents\KartyaKezelo\KartyaKezelo\KartyaKezelo\obj\Debug\KartyaKezelo.exe
 C:\Users\Robi\Documents\KartyaKezelo\KartyaKezelo\KartyaKezelo\obj\Debug\KartyaKezelo.pdb
+C:\Users\Robi\Documents\KartyaKezelo\KartyaKezelo\KartyaKezelo\obj\Debug\KartyaKezelo.csprojAssemblyReference.cache

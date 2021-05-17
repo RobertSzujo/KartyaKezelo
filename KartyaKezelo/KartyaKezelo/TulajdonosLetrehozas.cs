@@ -74,13 +74,20 @@ namespace KartyaKezelo
 
         private void KilepesMentesNelkul()
         {
-            String uzenet = "Biztosan ki szeretne lépni a tulajdonos mentése nélkül?";
-            String cim = "Kilépés megerősítése";
-            MessageBoxButtons gombok = MessageBoxButtons.OKCancel;
+            if (!(tbTulajdonosEmail.Text.Equals("") && tbTulajdonosNeve.Text.Equals("") && tbTulajdonosTel.Text.Equals("")))
+            {
+                String uzenet = "Biztosan ki szeretne lépni a tulajdonos mentése nélkül?";
+                String cim = "Kilépés megerősítése";
+                MessageBoxButtons gombok = MessageBoxButtons.OKCancel;
 
-            DialogResult eredmeny = MessageBox.Show(this, uzenet, cim, gombok);
+                DialogResult eredmeny = MessageBox.Show(this, uzenet, cim, gombok);
 
-            if (eredmeny == DialogResult.OK)
+                if (eredmeny == DialogResult.OK)
+                {
+                    this.Close();
+                }
+            }
+            else
             {
                 this.Close();
             }

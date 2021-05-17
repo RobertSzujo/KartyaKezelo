@@ -72,8 +72,6 @@ namespace KartyaKezelo
                         kartya = new VisaKartya();
                     }
 
-                    //TODO: altípus hozzáadása (vagy kitörlése teljesen)
-
                     kartya.Kartyaszam = sor[0];
                     kartya.Lejarat = sor[2];
                     kartya.Cvc = sor[3];
@@ -122,7 +120,17 @@ namespace KartyaKezelo
 
         private void button2_Click_1(object sender, EventArgs e)
         {
+            String uzenet = "Biztosan le szeretné tiltani a kártyát? A művelet NEM VONHATÓ VISSZA!";
+            String cim = "Letiltás megerősítése";
+            MessageBoxButtons gombok = MessageBoxButtons.OKCancel;
 
+            DialogResult eredmeny = MessageBox.Show(this, uzenet, cim, gombok);
+
+            if (eredmeny == DialogResult.OK)
+            {
+                kivalasztottKartya.Letiltva = true;
+                KartyaFajlMentes(kartyak);
+            }
         }
 
         private void groupBox3_Enter(object sender, EventArgs e)
@@ -132,40 +140,44 @@ namespace KartyaKezelo
 
         private void button4_Click(object sender, EventArgs e)
         {
-            KartyaLetrehozas kartyaLetrehozas = new KartyaLetrehozas(tulajdonosok);
+            KartyaLetrehozas kartyaLetrehozas = new KartyaLetrehozas(tulajdonosok, kartyak);
             kartyaLetrehozas.ShowDialog();
 
             List<Kartya> ujKartyak = kartyaLetrehozas.KartyaListaAtadas();
 
             if (ujKartyak != null)
             {
-                StreamWriter kartyaStreamWriter = new StreamWriter("Kartyak.txt", true);
                 foreach (Kartya ujKartya in ujKartyak)
                 {
-                    kartyaStreamWriter.WriteLine(ujKartya.ToString());
+                    kartyak.Add(ujKartya);
+                    lbCards.Items.Add(ujKartya.Kartyaszam);
                 }
-                kartyaStreamWriter.Close();
 
-                AdatokUritese();
-                AdatokBetoltese();
+                KartyaFajlMentes(kartyak);
+
+                TulajdonosokUjratoltese();
             }
 
         }
 
-        private void AdatokUritese()
+        private void KartyaFajlMentes(List<Kartya> kartyak)
         {
-            if (kartyak.Count > 0)
+            File.Delete("Kartyak.txt");
+            StreamWriter kartyaStreamWriter = new StreamWriter("Kartyak.txt", true);
+            foreach (Kartya kartya in kartyak)
             {
-                kartyak.Clear();
+                kartyaStreamWriter.WriteLine(kartya.ToString());
             }
+            kartyaStreamWriter.Close();
+        }
+
+        private void TulajdonosokUjratoltese()
+        {
             if (tulajdonosok.Count > 0)
             {
                 tulajdonosok.Clear();
             }
-            if (lbCards.Items.Count > 0)
-            {
-                lbCards.Items.Clear();
-            }
+            TulajdonosokBetoltese();
         }
 
         private void button5_Click(object sender, EventArgs e)
@@ -200,8 +212,7 @@ namespace KartyaKezelo
 
                 btnKartyaAdatok.Enabled = true;
                 btnKartyaEsTulajdonosAdatok.Enabled = true;
-                //Ezeket még el kell készíteni!
-                btnDisableCard.Enabled = false;
+                btnDisableCard.Enabled = true;
                 btnRemoveCard.Enabled = false;
             }
             
@@ -209,7 +220,16 @@ namespace KartyaKezelo
 
         private void btnExit_Click(object sender, EventArgs e)
         {
-            this.Close();
+            String uzenet = "Biztosan ki szeretne lépni a programból?";
+            String cim = "Kilépés megerősítése";
+            MessageBoxButtons gombok = MessageBoxButtons.OKCancel;
+
+            DialogResult eredmeny = MessageBox.Show(this, uzenet, cim, gombok);
+
+            if (eredmeny == DialogResult.OK)
+            {
+                this.Close();
+            }
         }
 
         private void btnKartyaAdatok_Click(object sender, EventArgs e)

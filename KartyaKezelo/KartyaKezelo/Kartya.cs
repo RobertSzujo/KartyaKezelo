@@ -33,11 +33,10 @@ namespace KartyaKezelo
 
         public String KartyaEllenorzes()
         {
-
-            String KartyaSzamEredmeny = KartyaSzamEllenorzes(this.kartyaszam);
-            if (!KartyaSzamEredmeny.Equals("OK"))
+            String kartyaSzamEredmeny = KartyaSzamEllenorzes(this.kartyaszam);
+            if (!kartyaSzamEredmeny.Equals("OK"))
             {
-                return KartyaSzamEredmeny;
+                return kartyaSzamEredmeny;
             }
 
             String lejaratDatumEredmeny = LejaratDatumEllenorzes(this.lejarat);
