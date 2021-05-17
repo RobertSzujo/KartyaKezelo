@@ -120,16 +120,28 @@ namespace KartyaKezelo
 
         private void button2_Click_1(object sender, EventArgs e)
         {
-            String uzenet = "Biztosan le szeretné tiltani a kártyát? A művelet NEM VONHATÓ VISSZA!";
-            String cim = "Letiltás megerősítése";
-            MessageBoxButtons gombok = MessageBoxButtons.OKCancel;
-
-            DialogResult eredmeny = MessageBox.Show(this, uzenet, cim, gombok);
-
-            if (eredmeny == DialogResult.OK)
+            if (!kivalasztottKartya.Letiltva)
             {
-                kivalasztottKartya.Letiltva = true;
-                KartyaFajlMentes(kartyak);
+                String megerositoUzenet = "Biztosan le szeretné tiltani a kártyát? A művelet NEM VONHATÓ VISSZA!";
+                String megerositoCim = "Letiltás megerősítése";
+                MessageBoxButtons gombok = MessageBoxButtons.OKCancel;
+
+                DialogResult eredmeny = MessageBox.Show(this, megerositoUzenet, megerositoCim, gombok);
+
+                if (eredmeny == DialogResult.OK)
+                {
+                    kivalasztottKartya.Letiltva = true;
+                    KartyaFajlMentes(kartyak);
+                    String sikeresUzenet = "A kártya sikeresen letiltva";
+                    String sikeresCim = "Sikeres letiltás";
+                    MessageBox.Show(sikeresUzenet, sikeresCim);
+                }
+            }
+            else
+            {
+                String uzenet = "A kártya már le van tiltva!";
+                String cim = "Letiltás hiba";
+                MessageBox.Show(uzenet, cim);
             }
         }
 
@@ -213,7 +225,17 @@ namespace KartyaKezelo
                 btnKartyaAdatok.Enabled = true;
                 btnKartyaEsTulajdonosAdatok.Enabled = true;
                 btnDisableCard.Enabled = true;
+                btnRemoveCard.Enabled = true;
+            }
+            else
+            {
+                btnKartyaAdatok.Enabled = false;
+                btnKartyaEsTulajdonosAdatok.Enabled = false;
+                btnDisableCard.Enabled = false;
                 btnRemoveCard.Enabled = false;
+                tbKartyaszam.Text = "(nincs kiválasztva bankkártya)";
+                tbKartyatulajdonos.Text = "(nincs kiválasztva bankkártya)";
+                kivalasztottKartya = null;
             }
             
         }
@@ -236,6 +258,27 @@ namespace KartyaKezelo
         {
             KartyaLekerdezes kartyaLekerdezes = new KartyaLekerdezes(kivalasztottKartya);
             kartyaLekerdezes.ShowDialog();
+        }
+
+        private void btnRemoveCard_Click(object sender, EventArgs e)
+        {
+            String megerositoUzenet = "Biztosan ki szeretné törölni a kártyát? A művelet NEM VONHATÓ VISSZA!";
+            String megerositoCim = "Törlés megerősítése";
+            MessageBoxButtons gombok = MessageBoxButtons.OKCancel;
+
+            DialogResult eredmeny = MessageBox.Show(this, megerositoUzenet, megerositoCim, gombok);
+
+            if (eredmeny == DialogResult.OK)
+            {
+                kartyak.Remove(kivalasztottKartya);
+                lbCards.Items.Remove(kivalasztottKartya.Kartyaszam);
+                KartyaFajlMentes(kartyak);
+
+                String sikeresUzenet = "A kártya sikeresen törlésre került!";
+                String sikeresCim = "Sikeres törlés!";
+
+                MessageBox.Show(sikeresUzenet, sikeresCim);
+            }
         }
     }
 }

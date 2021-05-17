@@ -112,6 +112,7 @@ namespace KartyaKezelo
             this.btnRemoveCard.TabIndex = 2;
             this.btnRemoveCard.Text = "Kártya törlése";
             this.btnRemoveCard.UseVisualStyleBackColor = true;
+            this.btnRemoveCard.Click += new System.EventHandler(this.btnRemoveCard_Click);
             // 
             // btnDisableCard
             // 
