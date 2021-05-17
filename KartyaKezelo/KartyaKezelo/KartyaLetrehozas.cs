@@ -37,7 +37,28 @@ namespace KartyaKezelo
 
         private void button3_Click(object sender, EventArgs e)
         {
-            this.Close();
+            KilepesMentesNelkul();
+        }
+
+        private void KilepesMentesNelkul()
+        {
+            if (ujKartyak.Count > 0)
+            {
+                String uzenet = "Biztosan ki szeretne lépni a kártyák mentése nélkül?";
+                String cim = "Kilépés megerősítése";
+                MessageBoxButtons gombok = MessageBoxButtons.OKCancel;
+
+                DialogResult eredmeny = MessageBox.Show(this, uzenet, cim, gombok);
+
+                if (eredmeny == DialogResult.OK)
+                {
+                    this.Close();
+                }
+            }
+            else
+            {
+                this.Close();
+            }
         }
 
         private void rbMasterCard_CheckedChanged(object sender, EventArgs e)
@@ -86,6 +107,9 @@ namespace KartyaKezelo
             if (ujKartyak.Count > 0)
             {
                 menteniKell = true;
+                String uzenet = "A kártyák mentése sikeresen megtörtént!";
+                String cim = "Sikeres mentés!";
+                MessageBox.Show(uzenet, cim);
             }
             this.Close();
         }
@@ -146,6 +170,11 @@ namespace KartyaKezelo
             {
                 return null;
             }
+        }
+
+        private void KartyaLetrehozas_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }

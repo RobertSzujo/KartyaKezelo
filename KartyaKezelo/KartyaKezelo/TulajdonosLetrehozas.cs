@@ -25,7 +25,7 @@ namespace KartyaKezelo
 
         private void button2_Click(object sender, EventArgs e)
         {
-            this.Close();
+            KilepesMentesNelkul();
         }
 
         private void btnMentesKilepes_Click(object sender, EventArgs e)
@@ -69,6 +69,20 @@ namespace KartyaKezelo
             else
             {
                 return null;
+            }
+        }
+
+        private void KilepesMentesNelkul()
+        {
+            String uzenet = "Biztosan ki szeretne lépni a tulajdonos mentése nélkül?";
+            String cim = "Kilépés megerősítése";
+            MessageBoxButtons gombok = MessageBoxButtons.OKCancel;
+
+            DialogResult eredmeny = MessageBox.Show(this, uzenet, cim, gombok);
+
+            if (eredmeny == DialogResult.OK)
+            {
+                this.Close();
             }
         }
 

@@ -320,6 +320,7 @@ namespace KartyaKezelo
             this.MinimumSize = new System.Drawing.Size(659, 435);
             this.Name = "KartyaLetrehozas";
             this.Text = "Új kártya létrehozása";
+            this.Load += new System.EventHandler(this.KartyaLetrehozas_Load);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             this.groupBox2.ResumeLayout(false);
