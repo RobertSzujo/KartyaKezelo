@@ -1,6 +1,2 @@
-1,Teszt,teszt@gmail.com,+3612345678
-2,a,szujo@gmail,
-3,Példa Péter,peter.pelda@gmail.com,+36308472028
-4,Példa László,laszlo.pelda@gmail.com,+36705884595
-5,Teszt3,fafasf@adfasfg.com,+36301234567
-6,Teszt4,teszt.teszt@teszt.com,+361231234
+1,Példa Péter,peter.pelda@gmail.com,+36308472028
+2,Példa László,laszlo.pelda@gmail.com,+36705884595
