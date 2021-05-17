@@ -105,13 +105,10 @@ namespace KartyaKezelo
 
         private void btnMentesKilepes_Click(object sender, EventArgs e)
         {
-            if (ujKartyak.Count > 0)
-            {
-                menteniKell = true;
-                String uzenet = "A kártyák mentése sikeresen megtörtént!";
-                String cim = "Sikeres mentés!";
-                MessageBox.Show(uzenet, cim);
-            }
+            menteniKell = true;
+            String uzenet = "A kártyák mentése sikeresen megtörtént!";
+            String cim = "Sikeres mentés!";
+            MessageBox.Show(uzenet, cim);
             this.Close();
         }
 
@@ -160,6 +157,11 @@ namespace KartyaKezelo
                     String cim = "Sikeres mentés";
                     String uzenet = "A kártya sikeresen mentésre került az új kártyák közé!";
                     MessageBox.Show(uzenet, cim);
+
+                    if (btnMentesKilepes.Enabled == false)
+                    {
+                        btnMentesKilepes.Enabled = true;
+                    }
 
                     MezokUritese();
                 }

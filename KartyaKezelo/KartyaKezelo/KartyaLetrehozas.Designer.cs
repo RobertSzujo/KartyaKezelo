@@ -192,6 +192,7 @@ namespace KartyaKezelo
             // 
             // btnMentesKilepes
             // 
+            this.btnMentesKilepes.Enabled = false;
             this.btnMentesKilepes.ForeColor = System.Drawing.Color.Green;
             this.btnMentesKilepes.Location = new System.Drawing.Point(12, 345);
             this.btnMentesKilepes.Name = "btnMentesKilepes";
