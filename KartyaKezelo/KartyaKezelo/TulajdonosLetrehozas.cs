@@ -15,8 +15,8 @@ namespace KartyaKezelo
     {
         List<Tulajdonos> tulajdonosLista;
 
-        private Tulajdonos tulajdonos;
-        public Tulajdonos ujTulajdonos;
+        Tulajdonos tulajdonos;
+        bool sikeresLetrehozas = false;
         public TulajdonosLetrehozas(List<Tulajdonos> tulajdonosok)
         {
             InitializeComponent();
@@ -47,17 +47,28 @@ namespace KartyaKezelo
             String ellenorzesEredmeny = tulajdonos.TulajdonosEllenorzes();
             if (ellenorzesEredmeny.Equals("OK"))
             {
+                sikeresLetrehozas = true;
                 string uzenet = "A tulajdonos sikeresen mentésre került!";
                 string cim = "Sikeres mentés";
-
                 MessageBox.Show(uzenet, cim);
-                ujTulajdonos = tulajdonos;
                 this.Close();
             }
             else
             {
                 string cim = "Sikertelen mentés";
                 MessageBox.Show(ellenorzesEredmeny, cim);
+            }
+        }
+
+        public Tulajdonos TulajdonosAtadas()
+        {
+            if (sikeresLetrehozas == true)
+            {
+                return tulajdonos;
+            }
+            else
+            {
+                return null;
             }
         }
 

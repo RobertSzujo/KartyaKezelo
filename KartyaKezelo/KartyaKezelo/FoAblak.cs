@@ -135,10 +135,12 @@ namespace KartyaKezelo
             KartyaLetrehozas kartyaLetrehozas = new KartyaLetrehozas(tulajdonosok);
             kartyaLetrehozas.ShowDialog();
 
-            if (kartyaLetrehozas.ujKartyak.Count > 0)
+            List<Kartya> ujKartyak = kartyaLetrehozas.KartyaListaAtadas();
+
+            if (ujKartyak != null)
             {
                 StreamWriter kartyaStreamWriter = new StreamWriter("Kartyak.txt", true);
-                foreach (Kartya ujKartya in kartyaLetrehozas.ujKartyak)
+                foreach (Kartya ujKartya in ujKartyak)
                 {
                     kartyaStreamWriter.WriteLine(ujKartya.ToString());
                 }

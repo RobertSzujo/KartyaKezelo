@@ -16,8 +16,8 @@ namespace KartyaKezelo
 
         List<Tulajdonos> tulajdonosLista;
         Tulajdonos kivalasztottTulajdonos;
-
-        public List<Kartya> ujKartyak = new List<Kartya>();
+        List<Kartya> ujKartyak = new List<Kartya>();
+        bool menteniKell = false;
 
         public KartyaLetrehozas(List<Tulajdonos> tulajdonosok)
         {
@@ -37,10 +37,6 @@ namespace KartyaKezelo
 
         private void button3_Click(object sender, EventArgs e)
         {
-            if (ujKartyak.Count > 0)
-            {
-                ujKartyak.Clear();
-            }
             this.Close();
         }
 
@@ -73,18 +69,24 @@ namespace KartyaKezelo
             TulajdonosLetrehozas tulajdonosLetrehozas = new TulajdonosLetrehozas(tulajdonosLista);
             tulajdonosLetrehozas.ShowDialog();
 
-            if (tulajdonosLetrehozas.ujTulajdonos != null)
+            Tulajdonos ujTulajdonos = tulajdonosLetrehozas.TulajdonosAtadas();
+
+            if (ujTulajdonos != null)
             {
                 StreamWriter tulajdonosStreamWriter = new StreamWriter("Tulajdonosok.txt", true);
-                tulajdonosStreamWriter.WriteLine(tulajdonosLetrehozas.ujTulajdonos.ToString());
+                tulajdonosStreamWriter.WriteLine(ujTulajdonos.ToString());
                 tulajdonosStreamWriter.Close();
-                tulajdonosLista.Add(tulajdonosLetrehozas.ujTulajdonos);
-                lbTulajdonosok.Items.Add(tulajdonosLetrehozas.ujTulajdonos.Id + ": " + tulajdonosLetrehozas.ujTulajdonos.Nev);
+                tulajdonosLista.Add(ujTulajdonos);
+                lbTulajdonosok.Items.Add(ujTulajdonos.Id + ": " + ujTulajdonos.Nev);
             }
         }
 
         private void btnMentesKilepes_Click(object sender, EventArgs e)
         {
+            if (ujKartyak.Count > 0)
+            {
+                menteniKell = true;
+            }
             this.Close();
         }
 
@@ -132,6 +134,18 @@ namespace KartyaKezelo
             tbBankkartyaSzam.Text = "";
             dtpLejarat.Text = "";
             tbCvc.Text = "";
+        }
+
+        public List<Kartya> KartyaListaAtadas()
+        {
+            if (menteniKell == true)
+            {
+                return ujKartyak;
+            }
+            else
+            {
+                return null;
+            }
         }
     }
 }
