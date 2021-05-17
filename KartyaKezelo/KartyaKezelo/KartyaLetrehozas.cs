@@ -117,14 +117,14 @@ namespace KartyaKezelo
                 String cim = "Sikeres mentés";
                 String uzenet = "A kártya sikeresen mentésre került az új kártyák közé!";
                 MessageBox.Show(uzenet, cim);
+
+                MezokUritese();
             }
             else
             {
                 String cim = "Létrehozás hiba";
                 MessageBox.Show(kartyaEllenorzesEredmeny, cim);
             }
-
-            MezokUritese();
         }
 
         private void MezokUritese()

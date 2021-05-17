@@ -15,6 +15,7 @@ namespace KartyaKezelo
     {
         List<Tulajdonos> tulajdonosLista;
 
+        private Tulajdonos tulajdonos;
         public Tulajdonos ujTulajdonos;
         public TulajdonosLetrehozas(List<Tulajdonos> tulajdonosok)
         {
@@ -29,21 +30,35 @@ namespace KartyaKezelo
 
         private void btnMentesKilepes_Click(object sender, EventArgs e)
         {
-            ujTulajdonos = new Tulajdonos();
+            tulajdonos = new Tulajdonos();
 
             if (tulajdonosLista.Count > 0)
             {
-                ujTulajdonos.Id = tulajdonosLista.Last().Id + 1;
+                tulajdonos.Id = tulajdonosLista.Last().Id + 1;
             }
             else
             {
-                ujTulajdonos.Id = 1;
+                tulajdonos.Id = 1;
             }
-            ujTulajdonos.Nev = tbTulajdonosNeve.Text;
-            ujTulajdonos.Email = tbTulajdonosEmail.Text;
-            ujTulajdonos.Telefonszam = tbTulajdonosTel.Text;
+            tulajdonos.Nev = tbTulajdonosNeve.Text;
+            tulajdonos.Email = tbTulajdonosEmail.Text;
+            tulajdonos.Telefonszam = tbTulajdonosTel.Text;
 
-            this.Close();
+            String ellenorzesEredmeny = tulajdonos.TulajdonosEllenorzes();
+            if (ellenorzesEredmeny.Equals("OK"))
+            {
+                string uzenet = "A tulajdonos sikeresen mentésre került!";
+                string cim = "Sikeres mentés";
+
+                MessageBox.Show(uzenet, cim);
+                ujTulajdonos = tulajdonos;
+                this.Close();
+            }
+            else
+            {
+                string cim = "Sikertelen mentés";
+                MessageBox.Show(ellenorzesEredmeny, cim);
+            }
         }
 
     }
