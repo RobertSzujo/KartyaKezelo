@@ -12,5 +12,14 @@ namespace KartyaKezelo
         {
             return this.Kartyaszam + "," + "MasterCard" + "," + this.Lejarat + "," + this.Cvc + "," + this.Letiltva.ToString() + "," + this.Tulajdonos.Id;
         }
+
+        protected override string GyartoKartyaSzamEllenorzes(String kartyaszam)
+        {
+            if (!kartyaszam.StartsWith("5"))
+            {
+                return "MasterCard kártyák esetén a kártyaszámnak 5-össel kell kezdődnie!";
+            }
+            return "OK";
+        }
     }
 }

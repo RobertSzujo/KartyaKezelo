@@ -108,13 +108,30 @@ namespace KartyaKezelo
             kartya.Letiltva = false;
             kartya.Tulajdonos = kivalasztottTulajdonos;
 
-            ujKartyak.Add(kartya);
+            String kartyaEllenorzesEredmeny = kartya.KartyaEllenorzes();
+            if (kartyaEllenorzesEredmeny.Equals("OK"))
+            {
+                ujKartyak.Add(kartya);
+                lbMentesreVar.Text = "Mentésre vár: " + ujKartyak.Count + " db kártya";
 
+                String cim = "Sikeres mentés";
+                String uzenet = "A kártya sikeresen mentésre került az új kártyák közé!";
+                MessageBox.Show(uzenet, cim);
+            }
+            else
+            {
+                String cim = "Létrehozás hiba";
+                MessageBox.Show(kartyaEllenorzesEredmeny, cim);
+            }
+
+            MezokUritese();
+        }
+
+        private void MezokUritese()
+        {
             tbBankkartyaSzam.Text = "";
             dtpLejarat.Text = "";
             tbCvc.Text = "";
-
-            lbMentesreVar.Text = "Mentésre vár: "+ ujKartyak.Count +" db kártya";
         }
     }
 }

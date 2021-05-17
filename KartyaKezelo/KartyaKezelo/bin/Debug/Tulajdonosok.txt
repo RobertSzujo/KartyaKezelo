@@ -1,2 +1,1 @@
-1,Elek Zoltán,zoltan.elek@gmail.com,+36301234567
-2,Példa Péter,peter.pelda@gmail.com,+36308472028
+1,Teszt,teszt@gmail.com,+3612345678
