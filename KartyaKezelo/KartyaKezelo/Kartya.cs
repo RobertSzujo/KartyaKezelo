@@ -60,7 +60,7 @@ namespace KartyaKezelo
             return "OK";
         }
 
-        private string KartyaSzamEllenorzes(string kartyaszam)
+        protected string KartyaSzamEllenorzes(string kartyaszam)
         {
             string regexPattern = @"\d{16}";
             Regex regex = new Regex(regexPattern);
