@@ -242,16 +242,7 @@ namespace KartyaKezelo
 
         private void btnExit_Click(object sender, EventArgs e)
         {
-            String uzenet = "Biztosan ki szeretne lépni a programból?";
-            String cim = "Kilépés megerősítése";
-            MessageBoxButtons gombok = MessageBoxButtons.OKCancel;
-
-            DialogResult eredmeny = MessageBox.Show(this, uzenet, cim, gombok);
-
-            if (eredmeny == DialogResult.OK)
-            {
-                this.Close();
-            }
+            this.Close();
         }
 
         private void btnKartyaAdatok_Click(object sender, EventArgs e)
@@ -278,6 +269,20 @@ namespace KartyaKezelo
                 String sikeresCim = "Sikeres törlés!";
 
                 MessageBox.Show(sikeresUzenet, sikeresCim);
+            }
+        }
+
+        private void FoAblak_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            String uzenet = "Biztosan ki szeretne lépni a programból?";
+            String cim = "Kilépés megerősítése";
+            MessageBoxButtons gombok = MessageBoxButtons.OKCancel;
+
+            DialogResult eredmeny = MessageBox.Show(this, uzenet, cim, gombok);
+
+            if (eredmeny != DialogResult.OK)
+            {
+                e.Cancel = true;
             }
         }
     }

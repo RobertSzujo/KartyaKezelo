@@ -25,7 +25,7 @@ namespace KartyaKezelo
 
         private void button2_Click(object sender, EventArgs e)
         {
-            KilepesMentesNelkul();
+            this.Close();
         }
 
         private void btnMentesKilepes_Click(object sender, EventArgs e)
@@ -72,9 +72,9 @@ namespace KartyaKezelo
             }
         }
 
-        private void KilepesMentesNelkul()
+        private void TulajdonosLetrehozas_FormClosing(object sender, FormClosingEventArgs e)
         {
-            if (!(tbTulajdonosEmail.Text.Equals("") && tbTulajdonosNeve.Text.Equals("") && tbTulajdonosTel.Text.Equals("")))
+            if (!(tbTulajdonosEmail.Text.Equals("") && tbTulajdonosNeve.Text.Equals("") && tbTulajdonosTel.Text.Equals("")) && sikeresLetrehozas == false)
             {
                 String uzenet = "Biztosan ki szeretne lépni a tulajdonos mentése nélkül?";
                 String cim = "Kilépés megerősítése";
@@ -82,16 +82,11 @@ namespace KartyaKezelo
 
                 DialogResult eredmeny = MessageBox.Show(this, uzenet, cim, gombok);
 
-                if (eredmeny == DialogResult.OK)
+                if (eredmeny != DialogResult.OK)
                 {
-                    this.Close();
+                    e.Cancel = true;
                 }
             }
-            else
-            {
-                this.Close();
-            }
         }
-
     }
 }

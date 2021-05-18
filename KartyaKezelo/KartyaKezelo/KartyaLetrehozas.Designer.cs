@@ -321,7 +321,7 @@ namespace KartyaKezelo
             this.MinimumSize = new System.Drawing.Size(659, 435);
             this.Name = "KartyaLetrehozas";
             this.Text = "Új kártya létrehozása";
-            this.Load += new System.EventHandler(this.KartyaLetrehozas_Load);
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.KartyaLetrehozas_FormClosing);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             this.groupBox2.ResumeLayout(false);

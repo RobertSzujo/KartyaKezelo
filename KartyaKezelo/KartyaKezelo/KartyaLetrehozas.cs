@@ -43,23 +43,7 @@ namespace KartyaKezelo
 
         private void KilepesMentesNelkul()
         {
-            if (ujKartyak.Count > 0)
-            {
-                String uzenet = "Biztosan ki szeretne lépni a kártyák mentése nélkül?";
-                String cim = "Kilépés megerősítése";
-                MessageBoxButtons gombok = MessageBoxButtons.OKCancel;
-
-                DialogResult eredmeny = MessageBox.Show(this, uzenet, cim, gombok);
-
-                if (eredmeny == DialogResult.OK)
-                {
-                    this.Close();
-                }
-            }
-            else
-            {
-                this.Close();
-            }
+            this.Close();
         }
 
         private void rbMasterCard_CheckedChanged(object sender, EventArgs e)
@@ -192,9 +176,21 @@ namespace KartyaKezelo
             }
         }
 
-        private void KartyaLetrehozas_Load(object sender, EventArgs e)
+        private void KartyaLetrehozas_FormClosing(object sender, FormClosingEventArgs e)
         {
+            if (ujKartyak.Count > 0 && menteniKell == false)
+            {
+                String uzenet = "Biztosan ki szeretne lépni a kártyák mentése nélkül?";
+                String cim = "Kilépés megerősítése";
+                MessageBoxButtons gombok = MessageBoxButtons.OKCancel;
 
+                DialogResult eredmeny = MessageBox.Show(this, uzenet, cim, gombok);
+
+                if (eredmeny != DialogResult.OK)
+                {
+                    e.Cancel = true;
+                }
+            }
         }
     }
 }

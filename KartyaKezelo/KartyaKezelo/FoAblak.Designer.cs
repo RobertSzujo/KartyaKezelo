@@ -214,6 +214,7 @@ namespace KartyaKezelo
             this.MinimumSize = new System.Drawing.Size(818, 409);
             this.Name = "FoAblak";
             this.Text = "Bankkártya kezelő alkalamzás";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.FoAblak_FormClosing);
             this.groupBox2.ResumeLayout(false);
             this.groupBox3.ResumeLayout(false);
             this.ResumeLayout(false);

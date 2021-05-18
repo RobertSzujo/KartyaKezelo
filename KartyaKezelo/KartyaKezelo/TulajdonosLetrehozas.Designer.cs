@@ -139,6 +139,7 @@ namespace KartyaKezelo
             this.MinimumSize = new System.Drawing.Size(356, 325);
             this.Name = "TulajdonosLetrehozas";
             this.Text = "Új tulajdonos létrehozása";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.TulajdonosLetrehozas_FormClosing);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             this.ResumeLayout(false);
